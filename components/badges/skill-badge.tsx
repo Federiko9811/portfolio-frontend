@@ -6,7 +6,7 @@ interface SkillBadgeProps {
 
 export function SkillBadge({ name }: SkillBadgeProps) {
     return (
-        <Badge variant="outline" className="px-3 py-1 text-sm">
+        <Badge variant="accent" className="px-3 py-1 text-sm">
             {name}
         </Badge>
     )

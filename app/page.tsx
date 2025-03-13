@@ -1,11 +1,12 @@
-import BaseContainer from "@/components/containers/base-container";
 import AboutMe from "@/components/sections/about-me";
 import IntroductionBanner from "@/components/sections/introduction-banner";
 import Projects from "@/components/sections/projects";
+import Skills from "@/components/sections/skills";
+import Certifications from "@/components/sections/certifications";
 
 export default function Home() {
     return (
-        <BaseContainer>
+        <div>
             <div className="flex flex-col min-h-screen">
 
                 <IntroductionBanner/>
@@ -13,11 +14,15 @@ export default function Home() {
                 <main>
                     <AboutMe/>
 
-                    <Projects />
+                    <Projects/>
+
+                    <Skills/>
+
+                    <Certifications/>
 
                 </main>
             </div>
-        </BaseContainer>
+        </div>
     )
 }
 

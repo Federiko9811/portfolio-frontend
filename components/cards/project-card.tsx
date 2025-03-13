@@ -14,10 +14,15 @@ interface ProjectCardProps {
 
 export function ProjectCard({title, description, tags, imageUrl, projectUrl}: ProjectCardProps) {
     return (
-        <Card className="overflow-hidden transition-all shadow-lg rounded-lg">
-            <CardHeader className="p-0">
-                <div className="relative h-48 w-full">
-                    <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover"/>
+        <Card className="overflow-hidden transition-all rounded-lg bg-muted/40 border-none hover:shadow-lg">
+            <CardHeader>
+                <div className="relative h-48">
+                    <div
+                        className={"bg-gradient-to-tr from-accent via-purple-500 to-accent h-48 rounded-lg"}
+                    >
+                        <Image src={imageUrl || "/placeholder.svg"} alt={title} fill
+                               className="object-cover rounded-lg"/>
+                    </div>
                 </div>
             </CardHeader>
             <CardContent className="p-6">
