@@ -1,7 +1,11 @@
+import BaseContainer from "@/components/containers/base-container";
+
 export default function Home() {
     return (
-        <div>
-            Ciao
-        </div>
+        <BaseContainer>
+            <div>
+                Ciao
+            </div>
+        </BaseContainer>
     );
 }
