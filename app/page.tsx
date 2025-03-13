@@ -4,7 +4,9 @@ import {Button} from "@/components/ui/button";
 export default function Home() {
     return (
         <BaseContainer>
-            <div>
+            <div
+                className={"animate-wiggle animate-twice animate-ease-out animate-alternate"}
+            >
                 <Button>
                     Click me
                 </Button>
