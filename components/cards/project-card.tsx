@@ -14,7 +14,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({title, description, tags, imageUrl, projectUrl}: ProjectCardProps) {
     return (
-        <Card className="overflow-hidden transition-all hover:shadow-lg">
+        <Card className="overflow-hidden transition-all shadow-lg rounded-lg">
             <CardHeader className="p-0">
                 <div className="relative h-48 w-full">
                     <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover"/>
@@ -25,7 +25,7 @@ export function ProjectCard({title, description, tags, imageUrl, projectUrl}: Pr
                 <p className="mt-2 text-muted-foreground">{description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                     {tags.map((tag) => (
-                        <Badge key={tag} variant="secondary">
+                        <Badge key={tag} variant="accent">
                             {tag}
                         </Badge>
                     ))}
