@@ -8,5 +8,3 @@ services:
             - PORT=3000
             - HOSTNAME=0.0.0.0
         restart: unless-stopped
-
-# TODO Fix

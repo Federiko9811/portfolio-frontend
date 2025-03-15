@@ -1,5 +1,4 @@
 # syntax=docker.io/docker/dockerfile:1
-# TODO FIX
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
@@ -45,16 +44,16 @@ ENV NODE_ENV=production
 # ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN adduser --system --uid 1001 portfolio-frontend
 
 COPY --from=builder /app/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=portfolio-frontend:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=portfolio-frontend:nodejs /app/.next/static ./.next/static
 
-USER nextjs
+USER portfolio-frontend
 
 EXPOSE 3000
 
