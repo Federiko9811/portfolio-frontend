@@ -2,8 +2,12 @@ import React from 'react';
 import {ProjectCard} from "@/components/cards/project-card";
 import {Button} from "@/components/ui/button";
 import BaseContainer from "@/components/containers/base-container";
+import projectsList from "@/data/projects.json";
 
 const Projects = () => {
+
+    const projects: Project[] = projectsList
+
     return (
         <BaseContainer>
             <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
@@ -15,13 +19,12 @@ const Projects = () => {
                         </p>
                     </div>
                     <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
-                        <ProjectCard
-                            title="AI-Powered Image Recognition"
-                            description="A deep learning model for image classification using TensorFlow and PyTorch."
-                            tags={["Python", "TensorFlow", "PyTorch", "Computer Vision"]}
-                            imageUrl="/placeholder.svg?height=300&width=400"
-                            projectUrl="#"
-                        />
+                        {projects.map((project: Project) => (
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                            />
+                        ))}
                     </div>
                     <div className="flex justify-center">
                         <Button variant="secondary" className="mt-4">
