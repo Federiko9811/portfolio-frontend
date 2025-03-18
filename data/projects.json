@@ -10,9 +10,26 @@
             "Python",
             "OpenCV"
         ],
-        "date": "oct 2024 - jan 2025",
+        "date": "Oct 2024 - Jan 2025",
         "content": "## Iris Recognition: Traditional vs. Deep Learning Approaches\n\n[Alessio Pannozzo](https://www.linkedin.com/in/alessio-pannozzo-7a9101176/), [Lorenzo Spataro](https://www.linkedin.com/in/lorenzo-spataro-b0690117a/)  and me are excited to share our latest project comparing traditional biometric pipelines and deep learning-based methods for iris recognition! \uD83D\uDC41\uFE0F\uD83D\uDCA1  \n\nUsing the OpenIris library, we implemented a classic approach leveraging Gabor filters for feature extraction and Hamming distance for matching. In contrast, our deep learning model, based on ResNet-50, automatically learns feature embeddings and evaluates similarity.  \n\n\uD83D\uDCCA Key Takeaways:  \n\n✅ Traditional methods excel in structured environments with well-defined features.  \n✅ Deep learning provides greater adaptability to complex patterns and variations.  \n✅ Our evaluation on the CASIA-Iris-Thousand dataset highlights the strengths and trade-offs of each approach.  \n\nThis study provides insights into choosing the right approach for real-world biometric authentication systems. \uD83D\uDE80  \nWould love to hear your thoughts on the future of AI-powered biometrics!\n",
         "github": "https://github.com/lorenzosp01/iris-recognition-system",
         "pdf": "/data/files/iris-recognition/IrisRecognitionProject.pdf"
+    },
+    {
+        "id": 2,
+        "title": "Pneumonia detection from Chest X-ray images",
+        "description": "Comparison of binary classification techniques using traditional methods and deep learning",
+        "tags": [
+            "Machine learning",
+            "Deep learning",
+            "ResNet50",
+            "Classifiers",
+            "Python",
+            "OpenCV"
+        ],
+        "date": "Oct 2024 - Jan 2025",
+        "content": "\n ## Pneumonia detection from Chest X-ray images\n[Marco Realacci](https://www.linkedin.com/in/marco-realacci-634433264/),  [Lorenzo Spataro](https://www.linkedin.com/in/lorenzo-spataro-b0690117a/), [Alessio Pannozzo](https://www.linkedin.com/in/alessio-pannozzo-7a9101176/),  [Gioele Maria Zoccoli](https://www.linkedin.com/in/gioele-maria-zoccoli-146299302/)  and me are excited to present our latest project comparing traditional machine learning and deep learning methods for pneumonia detection from chest X-ray images! \uD83C\uDFE5\uD83D\uDCCA\n\nWe evaluated classical models like Logistic Regression, KNN, Decision Trees, and SVM alongside deep learning architectures, including CNNs and ResNet50. A key focus of our study was cross-dataset generalization—analyzing how well models trained on one dataset perform on unseen data. Using the Chest X-Ray Images (Pneumonia), CheXpert, and RSNA Pneumonia Detection Challenge datasets, we tested model robustness in real-world scenarios.  \n\n\uD83D\uDD0D Key Takeaways:  \n\n✅ Traditional methods show stability across datasets but struggle with complex patterns.  \n✅ Deep learning models, especially ResNet50, achieve higher accuracy but are sensitive to dataset variability.  \n✅ Fine-tuning classification thresholds improves diagnostic performance.  \nOur findings offer valuable insights into selecting the best approach for AI-assisted pneumonia detection in clinical applications. Excited to hear your thoughts on the future of medical AI! \uD83D\uDE80\n",
+        "github": "",
+        "pdf": ""
     }
 ]

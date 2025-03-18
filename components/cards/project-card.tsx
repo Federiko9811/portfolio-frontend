@@ -12,6 +12,11 @@ export function ProjectCard({project}: ProjectCardProps) {
     return (
         <Card className="overflow-hidden transition-all rounded-lg bg-muted/40 border-none hover:shadow-lg">
             <CardContent className="p-6">
+                <div
+                    className="flex justify-center text-xs text-gray-500 mb-2 font-semibold"
+                >
+                    {project.date}
+                </div>
                 <h3 className="text-xl font-bold">{project.title}</h3>
                 <p className="mt-2 text-muted-foreground text-sm">{project.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2 items-center justify-center">
