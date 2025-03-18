@@ -13,7 +13,7 @@ export function ProjectCard({project}: ProjectCardProps) {
         <Card className="overflow-hidden transition-all rounded-lg bg-muted/40 border-none hover:shadow-lg">
             <CardContent className="p-6">
                 <h3 className="text-xl font-bold">{project.title}</h3>
-                <p className="mt-2 text-muted-foreground">{project.description}</p>
+                <p className="mt-2 text-muted-foreground text-sm">{project.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2 items-center justify-center">
                     {project.tags.map((tag) => (
                         <Badge key={tag} variant="accent">

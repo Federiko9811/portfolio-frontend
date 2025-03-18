@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "title": "Iris recognition: comparison of traditional biometric pipeline vs deep learning-based methods",
-        "description": "",
+        "title": "Iris Recognition: Traditional vs. Deep Learning Approaches",
+        "description": "Comparison of traditional biometric pipeline vs deep learning-based methods",
         "tags": [
             "Machine learning",
             "Deep learning",
@@ -11,7 +11,7 @@
             "OpenCV"
         ],
         "date": "oct 2024 - jan 2025",
-        "content": "# Iris recognition: comparison of traditional biometric pipeline vs deep learning-based methods\n\nThis project explores the comparison between traditional and deep learning-based approaches for iris recognition. The classical pipeline, implemented using the **OpenIris library,** relies on Gabor filters for feature extraction and Hamming distance for matching. \n\nIn contrast, the deep learning model leverages a ResNet-50 architecture, generating feature embeddings and evaluating similarity using cosine metrics. Both methods were evaluated on the **CASIA-Iris-Thousand** dataset under identical conditions, highlighting the trade-offs between rule-based and data-driven techniques for biometric authentication. This project explores the comparison between traditional and deep learning-based approaches for iris recognition. \n\nThe classical pipeline, implemented using the OpenIris library, relies on Gabor filters for feature extraction and Hamming distance for matching. In contrast, the deep learning model leverages a ResNet-50 architecture, generating feature embeddings and evaluating similarity using cosine metrics. Both methods were evaluated on the CASIA-Iris-Thousand dataset under identical conditions, highlighting the trade-offs between rule-based and data-driven techniques for biometric authentication.\n\n**Skills**: Machine learning · Deep learning · Biometric system evaluation · Python · OpenCV",
+        "content": "## Iris Recognition: Traditional vs. Deep Learning Approaches\n\n[Alessio Pannozzo](https://www.linkedin.com/in/alessio-pannozzo-7a9101176/), [Lorenzo Spataro](https://www.linkedin.com/in/lorenzo-spataro-b0690117a/)  and me are excited to share our latest project comparing traditional biometric pipelines and deep learning-based methods for iris recognition! \uD83D\uDC41\uFE0F\uD83D\uDCA1  \n\nUsing the OpenIris library, we implemented a classic approach leveraging Gabor filters for feature extraction and Hamming distance for matching. In contrast, our deep learning model, based on ResNet-50, automatically learns feature embeddings and evaluates similarity.  \n\n\uD83D\uDCCA Key Takeaways:  \n\n✅ Traditional methods excel in structured environments with well-defined features.  \n✅ Deep learning provides greater adaptability to complex patterns and variations.  \n✅ Our evaluation on the CASIA-Iris-Thousand dataset highlights the strengths and trade-offs of each approach.  \n\nThis study provides insights into choosing the right approach for real-world biometric authentication systems. \uD83D\uDE80  \nWould love to hear your thoughts on the future of AI-powered biometrics!\n",
         "github": "https://github.com/lorenzosp01/iris-recognition-system",
         "pdf": "/data/files/iris-recognition/IrisRecognitionProject.pdf"
     }

@@ -12,10 +12,12 @@ interface ProjectPageParams {
     }
 }
 
+const ProjectPage = async ({params}: ProjectPageParams) => {
+    // Make sure params is fully resolved before accessing
+    const resolvedParams = await Promise.resolve(params);
+    const projectId = Number(resolvedParams.id);
 
-const ProjectPage = ({params}: ProjectPageParams) => {
-
-    const project = projects.find((p) => p.id === parseInt(params.id));
+    const project = projects.find((p) => p.id === projectId);
 
     if (!project) {
         return (
@@ -31,9 +33,7 @@ const ProjectPage = ({params}: ProjectPageParams) => {
         <BaseContainer>
             <div className="prose max-w-none dark:prose-invert min-h-screen py-12 md:py-24 lg:py-32">
                 <ReactMarkdown
-                    remarkPlugins={
-                        [remarkGfm]
-                    }
+                    remarkPlugins={[remarkGfm]}
                 >
                     {project.content}
                 </ReactMarkdown>
@@ -49,7 +49,11 @@ const ProjectPage = ({params}: ProjectPageParams) => {
                         </Button>
                     </a>
 
-                    <a href="">
+                    <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <Button
                             variant={"secondary"}
                         >
@@ -57,8 +61,6 @@ const ProjectPage = ({params}: ProjectPageParams) => {
                         </Button>
                     </a>
                 </div>
-
-
             </div>
         </BaseContainer>
     );
