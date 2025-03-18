@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 import BaseContainer from "@/components/containers/base-container";
 import projects from "@/data/projects.json";
 import {Button} from "@/components/ui/button";
+import {FileText} from "lucide-react";
 
 interface ProjectPageParams {
     params: {
@@ -36,17 +37,27 @@ const ProjectPage = ({params}: ProjectPageParams) => {
                 >
                     {project.content}
                 </ReactMarkdown>
-
-                <Button
-                >
-                    {/*TODO Fix*/}
+                <div className={"flex gap-4"}>
                     <a
                         href={project.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        Download Pdf
+                        <Button>
+                            View PDF
+                            <FileText className="h-4 w-4"/>
+                        </Button>
                     </a>
 
-                </Button>
+                    <a href="">
+                        <Button
+                            variant={"secondary"}
+                        >
+                            Open on GitHub
+                        </Button>
+                    </a>
+                </div>
+
 
             </div>
         </BaseContainer>

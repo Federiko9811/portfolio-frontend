@@ -1,6 +1,5 @@
 import React from 'react';
 import {ProjectCard} from "@/components/cards/project-card";
-import {Button} from "@/components/ui/button";
 import BaseContainer from "@/components/containers/base-container";
 import projectsList from "@/data/projects.json";
 
@@ -25,11 +24,6 @@ const Projects = () => {
                                 project={project}
                             />
                         ))}
-                    </div>
-                    <div className="flex justify-center">
-                        <Button variant="secondary" className="mt-4">
-                            View All Projects
-                        </Button>
                     </div>
                 </div>
             </section>

@@ -1,7 +1,6 @@
-import Image from "next/image"
 import Link from "next/link"
 
-import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card"
+import {Card, CardContent, CardFooter} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
 
 interface ProjectCardProps {
@@ -12,20 +11,10 @@ export function ProjectCard({project}: ProjectCardProps) {
 
     return (
         <Card className="overflow-hidden transition-all rounded-lg bg-muted/40 border-none hover:shadow-lg">
-            <CardHeader>
-                <div className="relative h-48">
-                    <div
-                        className={"bg-gradient-to-tr from-accent via-purple-500 to-accent h-48 rounded-lg"}
-                    >
-                        <Image src={"/placeholder.svg"} alt={project.title} fill
-                               className="object-cover rounded-lg"/>
-                    </div>
-                </div>
-            </CardHeader>
             <CardContent className="p-6">
                 <h3 className="text-xl font-bold">{project.title}</h3>
                 <p className="mt-2 text-muted-foreground">{project.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2 items-center justify-center">
                     {project.tags.map((tag) => (
                         <Badge key={tag} variant="accent">
                             {tag}
