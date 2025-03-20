@@ -15,7 +15,7 @@ export function ProjectCard({project}: ProjectCardProps) {
                 <div
                     className="flex justify-center text-xs text-gray-500 mb-2 font-semibold"
                 >
-                    {project.date}
+                    {project.start_date} - {project.end_date}
                 </div>
                 <h3 className="text-xl font-bold">{project.title}</h3>
                 <p className="mt-2 text-muted-foreground text-sm">{project.description}</p>

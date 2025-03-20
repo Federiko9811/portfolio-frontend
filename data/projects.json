@@ -10,10 +10,23 @@
             "Python",
             "OpenCV"
         ],
-        "date": "Oct 2024 - Jan 2025",
-        "content": "## Iris Recognition: Traditional vs. Deep Learning Approaches\n\n[Alessio Pannozzo](https://www.linkedin.com/in/alessio-pannozzo-7a9101176/), [Lorenzo Spataro](https://www.linkedin.com/in/lorenzo-spataro-b0690117a/)  and me are excited to share our latest project comparing traditional biometric pipelines and deep learning-based methods for iris recognition! \uD83D\uDC41\uFE0F\uD83D\uDCA1  \n\nUsing the OpenIris library, we implemented a classic approach leveraging Gabor filters for feature extraction and Hamming distance for matching. In contrast, our deep learning model, based on ResNet-50, automatically learns feature embeddings and evaluates similarity.  \n\n\uD83D\uDCCA Key Takeaways:  \n\n✅ Traditional methods excel in structured environments with well-defined features.  \n✅ Deep learning provides greater adaptability to complex patterns and variations.  \n✅ Our evaluation on the CASIA-Iris-Thousand dataset highlights the strengths and trade-offs of each approach.  \n\nThis study provides insights into choosing the right approach for real-world biometric authentication systems. \uD83D\uDE80  \nWould love to hear your thoughts on the future of AI-powered biometrics!\n",
+        "start_date": "01/10/2024",
+        "end_date": "01/01/2025",
+        "content": "\nThis project explores the comparison between traditional and deep learning-based approaches for iris recognition. \n\nThe classical pipeline, implemented using the OpenIris library, relies on Gabor filters for feature extraction and Hamming distance for matching. \n\nIn contrast, the deep learning model leverages a ResNet-50 architecture, generating feature embeddings and evaluating similarity using cosine metrics. \n\nBoth methods were evaluated on the CASIA-Iris-Thousand dataset under identical conditions, highlighting the trade-offs between rule-based and data-driven techniques for biometric authentication.\n",
         "github": "https://github.com/lorenzosp01/iris-recognition-system",
-        "pdf": "/data/files/iris-recognition/IrisRecognitionProject.pdf"
+        "pdf": "/data/files/iris-recognition/IrisRecognitionProject.pdf",
+        "authors": [
+            {
+                "name": "Alessio Pannozzo",
+                "linkedin": "https://www.linkedin.com/in/alessio-pannozzo-7a9101176/",
+                "github": ""
+            },
+            {
+                "name": "Lorenzo Spataro",
+                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
+                "github": ""
+            }
+        ]
     },
     {
         "id": 2,
@@ -27,9 +40,32 @@
             "Python",
             "OpenCV"
         ],
-        "date": "Oct 2024 - Jan 2025",
-        "content": "\n ## Pneumonia detection from Chest X-ray images\n[Marco Realacci](https://www.linkedin.com/in/marco-realacci-634433264/),  [Lorenzo Spataro](https://www.linkedin.com/in/lorenzo-spataro-b0690117a/), [Alessio Pannozzo](https://www.linkedin.com/in/alessio-pannozzo-7a9101176/),  [Gioele Maria Zoccoli](https://www.linkedin.com/in/gioele-maria-zoccoli-146299302/)  and me are excited to present our latest project comparing traditional machine learning and deep learning methods for pneumonia detection from chest X-ray images! \uD83C\uDFE5\uD83D\uDCCA\n\nWe evaluated classical models like Logistic Regression, KNN, Decision Trees, and SVM alongside deep learning architectures, including CNNs and ResNet50. A key focus of our study was cross-dataset generalization—analyzing how well models trained on one dataset perform on unseen data. Using the Chest X-Ray Images (Pneumonia), CheXpert, and RSNA Pneumonia Detection Challenge datasets, we tested model robustness in real-world scenarios.  \n\n\uD83D\uDD0D Key Takeaways:  \n\n✅ Traditional methods show stability across datasets but struggle with complex patterns.  \n✅ Deep learning models, especially ResNet50, achieve higher accuracy but are sensitive to dataset variability.  \n✅ Fine-tuning classification thresholds improves diagnostic performance.  \nOur findings offer valuable insights into selecting the best approach for AI-assisted pneumonia detection in clinical applications. Excited to hear your thoughts on the future of medical AI! \uD83D\uDE80\n",
+        "start_date": "01/10/2024",
+        "end_date": "01/01/2025",
+        "content": "This study explores the effectiveness of binary classification techniques for pneumonia detection from chest X-ray images, comparing traditional machine learning methods with deep learning approaches. A key focus is evaluating cross-dataset generalization, assessing whether models trained on one dataset can accurately classify pneumonia in unseen datasets, a crucial factor for real-world clinical applications.  \n  \nUsing three publicly available datasets—Chest X-Ray Images (Pneumonia), CheXpert, and the RSNA Pneumonia Detection Challenge—the research examines the impact of data variability on model performance. Traditional classifiers, including Logistic Regression, K-Nearest Neighbors, Decision Trees, and Support Vector Machines, are tested alongside deep learning models, such as CNNs and ResNet50. Training and testing on different datasets allow for a comprehensive evaluation of model robustness in handling diverse clinical data.  \n  \nThe findings indicate that deep learning models, particularly ResNet50, outperform traditional methods in both intra-dataset and cross-dataset evaluations. However, simpler models like KNN and Logistic Regression exhibit greater stability across datasets, suggesting that their feature extraction methods are less sensitive to domain shifts. Dataset characteristics, such as class imbalance, label inconsistencies, and image quality, play a significant role in determining performance. Fine-tuning classification thresholds using ROC analysis further enhances diagnostic accuracy.  \n  \nThis study underscores the importance of AI-driven diagnostic tools while highlighting the challenges of ensuring model generalization. Future research will focus on integrating multimodal data, addressing dataset biases, and improving model interpretability to enhance AI-assisted pneumonia detection in clinical practice.\n",
         "github": "",
-        "pdf": ""
+        "pdf": "/data/files/pneumonia-detection/PneumoniaDetection.pdf",
+        "authors": [
+            {
+                "name": "Marco Realacci",
+                "linkedin": "https://www.linkedin.com/in/marco-realacci-634433264/",
+                "github": ""
+            },
+            {
+                "name": "Lorenzo Spataro",
+                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
+                "github": ""
+            },
+            {
+                "name": "Alessio Pannozzo",
+                "linkedin": "https://www.linkedin.com/in/alessio-pannozzo-7a9101176/",
+                "github": ""
+            },
+            {
+                "name": "Gioele Maria Zoccoli",
+                "linkedin": "https://www.linkedin.com/in/gioele-maria-zoccoli-146299302/",
+                "github": ""
+            }
+        ]
     }
 ]

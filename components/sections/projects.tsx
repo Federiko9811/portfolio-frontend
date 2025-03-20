@@ -5,7 +5,15 @@ import projectsList from "@/data/projects.json";
 
 const Projects = () => {
 
-    const projects: Project[] = projectsList
+    const projects: Project[] = projectsList.sort((a, b) => {
+        const dateA = new Date(a.end_date);
+        const dateB = new Date(b.end_date);
+
+        if (dateA < dateB) return -1;
+        if (dateA > dateB) return 1;
+
+        return a.title.localeCompare(b.title);
+    });
 
     return (
         <BaseContainer>
