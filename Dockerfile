@@ -55,9 +55,9 @@ COPY --from=builder --chown=portfolio-frontend:nodejs /app/.next/static ./.next/
 
 USER portfolio-frontend
 
-EXPOSE 3000
+EXPOSE 3003
 
-ENV PORT=3000
+ENV PORT=3003
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output

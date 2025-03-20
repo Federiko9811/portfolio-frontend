@@ -2,9 +2,9 @@ services:
     portfolio-frontend:
         build: .
         ports:
-            - "3000:3000"
+            - "3003:3003"
         network_mode: "host"
         environment:
-            - PORT=3000
+            - PORT=3003
             - HOSTNAME=0.0.0.0
         restart: unless-stopped
