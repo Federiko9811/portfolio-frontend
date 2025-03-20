@@ -1,10 +1,19 @@
-import React from 'react';
+'use client'
+import React, {useState} from 'react';
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import BaseContainer from "@/components/containers/base-container";
-import {DownloadIcon} from "lucide-react";
+import {DownloadIcon, MenuIcon} from "lucide-react";
+
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger,} from "@/components/ui/sheet"
+
+interface SectionLink {
+    name: string;
+    href: string;
+}
 
 const Navbar = () => {
+    const [isSheetOpen, setIsSheetOpen] = useState(false);
 
     const sectionLinks: SectionLink[] = [
         {
@@ -34,7 +43,7 @@ const Navbar = () => {
             className="sticky top-0 z-40 w-full border-b bg-background/10 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/80">
             <BaseContainer>
                 <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-                    <div className="flex gap-6 md:gap-10">
+                    <div className="flex gap-6 md:gap-10 items-center">
                         <nav className="hidden gap-6 md:flex">
                             {sectionLinks.map(link => (
                                 <Link
@@ -46,6 +55,35 @@ const Navbar = () => {
                                 </Link>
                             ))}
                         </nav>
+                        <div
+                            className={"md:hidden items-center flex"}
+                        >
+                            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                                <SheetTrigger>
+                                    <MenuIcon/>
+                                </SheetTrigger>
+                                <SheetContent
+                                    side={"left"}
+                                >
+                                    <SheetTitle>
+                                        <div
+                                            className={"mt-6 ml-6 flex flex-col gap-4"}
+                                        >
+                                            {sectionLinks.map(link => (
+                                                <Link
+                                                    key={link.href}
+                                                    href={link.href}
+                                                    className={"font-semibold text-sm"}
+                                                    onClick={() => setIsSheetOpen(false)}
+                                                >
+                                                    {link.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </SheetTitle>
+                                </SheetContent>
+                            </Sheet>
+                        </div>
                     </div>
                     <div className="flex flex-1 items-center justify-end space-x-4">
                         <nav className="flex items-center space-x-1">

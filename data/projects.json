@@ -17,6 +17,11 @@
         "pdf": "/data/files/iris-recognition/IrisRecognitionProject.pdf",
         "authors": [
             {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": ""
+            },
+            {
                 "name": "Alessio Pannozzo",
                 "linkedin": "https://www.linkedin.com/in/alessio-pannozzo-7a9101176/",
                 "github": ""
@@ -46,6 +51,11 @@
         "github": "",
         "pdf": "/data/files/pneumonia-detection/PneumoniaDetection.pdf",
         "authors": [
+            {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": ""
+            },
             {
                 "name": "Marco Realacci",
                 "linkedin": "https://www.linkedin.com/in/marco-realacci-634433264/",

@@ -45,7 +45,7 @@ const ProjectPage = () => {
                     <h3>
                         Authors
                     </h3>
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-wrap gap-2 items-center">
                         {project.authors?.map((author, index) => (
                             <Badge
                                 key={index}

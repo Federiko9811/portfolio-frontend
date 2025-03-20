@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import {Card, CardContent, CardFooter} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
+import {formatDateRange} from "@/utils/format-date-range"
 
 interface ProjectCardProps {
     project: Project
@@ -15,7 +16,7 @@ export function ProjectCard({project}: ProjectCardProps) {
                 <div
                     className="flex justify-center text-xs text-gray-500 mb-2 font-semibold"
                 >
-                    {project.start_date} - {project.end_date}
+                    {formatDateRange(project.start_date, project.end_date)}
                 </div>
                 <h3 className="text-xl font-bold">{project.title}</h3>
                 <p className="mt-2 text-muted-foreground text-sm">{project.description}</p>
