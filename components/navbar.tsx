@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button";
 import BaseContainer from "@/components/containers/base-container";
 import {DownloadIcon, MenuIcon} from "lucide-react";
 
-import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger,} from "@/components/ui/sheet"
+import {Sheet, SheetContent, SheetTitle, SheetTrigger,} from "@/components/ui/sheet"
 
 interface SectionLink {
     name: string;
