@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -5,19 +6,13 @@ import BaseContainer from "@/components/containers/base-container";
 import projects from "@/data/projects.json";
 import {Button} from "@/components/ui/button";
 import {FileText} from "lucide-react";
+import {useParams} from "next/navigation";
 
-interface ProjectPageParams {
-    params: {
-        id: string;
-    }
-}
+const ProjectPage = () => {
 
-const ProjectPage = async ({params}: ProjectPageParams) => {
-    // Make sure params is fully resolved before accessing
-    const resolvedParams = await Promise.resolve(params);
-    const projectId = Number(resolvedParams.id);
+    const params = useParams<{ id: string }>()
 
-    const project = projects.find((p) => p.id === projectId);
+    const project = projects.find((p) => p.id === parseInt(params.id));
 
     if (!project) {
         return (
