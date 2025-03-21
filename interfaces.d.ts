@@ -21,7 +21,7 @@ interface Project {
     start_date: string;
     end_date: string;
     content: string;
-    github?: string;
-    pdf?: string;
+    github?: string | null;
+    pdf?: string | null;
     authors?: Author[];
 }
