@@ -76,7 +76,7 @@ const Projects = () => {
     }
 
     return (
-        <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/20">
+        <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
             <BaseContainer>
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                     <div className="space-y-2">
