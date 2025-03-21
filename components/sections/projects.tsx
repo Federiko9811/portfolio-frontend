@@ -1,34 +1,83 @@
-'use client'
-import React, { useState } from 'react';
-import { ProjectCard } from "@/components/cards/project-card";
-import BaseContainer from "@/components/containers/base-container";
-import projectsList from "@/data/projects.json";
-import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+"use client"
+import {useEffect, useState} from "react"
+import {ProjectCard} from "@/components/cards/project-card"
+import BaseContainer from "@/components/containers/base-container"
+import projectsList from "@/data/projects.json"
+import {Button} from "@/components/ui/button"
+import {ArrowDown, Search} from "lucide-react"
+import {Input} from "@/components/ui/input"
+import {Badge} from "@/components/ui/badge"
+import {motion} from "framer-motion"
 
 const Projects = () => {
-    const [visibleCount, setVisibleCount] = useState(6);
+    const [visibleCount, setVisibleCount] = useState(6)
+    const [searchTerm, setSearchTerm] = useState("")
+    const [selectedTags, setSelectedTags] = useState<string[]>([])
+    const [allTags, setAllTags] = useState<string[]>([])
 
+    // Sort projects by date (newest first)
     const projects: Project[] = projectsList.sort((a, b) => {
-        const dateA = new Date(a.end_date.split('/').reverse().join('-')).getTime();
-        const dateB = new Date(b.end_date.split('/').reverse().join('-')).getTime();
+        const dateA = new Date(a.end_date.split("/").reverse().join("-")).getTime()
+        const dateB = new Date(b.end_date.split("/").reverse().join("-")).getTime()
 
         if (dateA !== dateB) {
-            return dateB - dateA;
+            return dateB - dateA
         }
-        return a.title.localeCompare(b.title);
-    });
+        return a.title.localeCompare(b.title)
+    })
+
+    // Extract all unique tags from projects
+    useEffect(() => {
+        const tags = new Set<string>()
+        projects.forEach((project) => {
+            project.tags.forEach((tag) => tags.add(tag))
+        })
+        setAllTags(Array.from(tags).sort())
+    }, [projects])
+
+    // Filter projects based on search term and selected tags
+    const filteredProjects = projects.filter((project) => {
+        const matchesSearch =
+            searchTerm === "" ||
+            project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            project.description.toLowerCase().includes(searchTerm.toLowerCase())
+
+        const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag))
+
+        return matchesSearch && matchesTags
+    })
+
+    const visibleProjects = filteredProjects.slice(0, visibleCount)
+    const hasMoreProjects = visibleCount < filteredProjects.length
 
     const loadMoreProjects = () => {
-        setVisibleCount(prevCount => prevCount + 3);
-    };
+        setVisibleCount((prevCount) => prevCount + 3)
+    }
 
-    const visibleProjects = projects.slice(0, visibleCount);
-    const hasMoreProjects = visibleCount < projects.length;
+    const toggleTag = (tag: string) => {
+        setSelectedTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]))
+        // Reset visible count when filters change
+        setVisibleCount(6)
+    }
+
+    const container = {
+        hidden: {opacity: 0},
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    }
+
+    const item = {
+        hidden: {y: 20, opacity: 0},
+        show: {y: 0, opacity: 1},
+    }
 
     return (
-        <BaseContainer>
-            <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted/20">
+            <BaseContainer>
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                     <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Projects</h2>
@@ -36,29 +85,75 @@ const Projects = () => {
                             Explore my portfolio of projects spanning various domains and technologies.
                         </p>
                     </div>
-                    <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8 mt-10">
-                        {visibleProjects.map((project: Project) => (
-                            <ProjectCard
-                                key={project.id}
-                                project={project}
+
+                    {/* Search and filter section */}
+                    <div className="w-full max-w-3xl mt-8 space-y-4">
+                        <div className="relative">
+                            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"/>
+                            <Input
+                                placeholder="Search projects..."
+                                className="pl-10"
+                                value={searchTerm}
+                                onChange={(e) => {
+                                    setSearchTerm(e.target.value)
+                                    setVisibleCount(6) // Reset visible count when search changes
+                                }}
                             />
-                        ))}
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 justify-center">
+                            {allTags.map((tag) => (
+                                <Badge
+                                    key={tag}
+                                    variant={selectedTags.includes(tag) ? "accent" : "outline"}
+                                    className="cursor-pointer hover:opacity-80 transition-all"
+                                    onClick={() => toggleTag(tag)}
+                                >
+                                    {tag}
+                                </Badge>
+                            ))}
+                        </div>
                     </div>
-                    {hasMoreProjects && (
-                        <div className="mt-8">
-                            <Button
-                                variant="secondary"
-                                onClick={loadMoreProjects}
-                            >
-                                View More Projects
-                                <ArrowDown className="h-4 w-4 ml-2" />
-                            </Button>
+
+                    {/* Projects grid */}
+                    {filteredProjects.length > 0 ? (
+                        <motion.div
+                            className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8 mt-10"
+                            variants={container}
+                            initial="hidden"
+                            animate="show"
+                        >
+                            {visibleProjects.map((project: Project) => (
+                                <motion.div key={project.id} variants={item}>
+                                    <ProjectCard project={project}/>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    ) : (
+                        <div className="py-12 text-center">
+                            <p className="text-muted-foreground">No projects match your search criteria.</p>
                         </div>
                     )}
-                </div>
-            </section>
-        </BaseContainer>
-    );
-};
 
-export default Projects;
+                    {/* Load more button */}
+                    {hasMoreProjects && (
+                        <motion.div
+                            className="mt-8"
+                            initial={{opacity: 0, y: 10}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{delay: 0.3}}
+                        >
+                            <Button variant="secondary" onClick={loadMoreProjects} className="group">
+                                View More Projects
+                                <ArrowDown className="h-4 w-4 ml-2 group-hover:translate-y-1 transition-transform"/>
+                            </Button>
+                        </motion.div>
+                    )}
+                </div>
+            </BaseContainer>
+        </section>
+    )
+}
+
+export default Projects
+

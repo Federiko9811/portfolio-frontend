@@ -4,11 +4,11 @@
         "title": "Iris Recognition: Traditional vs. Deep Learning Approaches",
         "description": "Comparison of traditional biometric pipeline vs deep learning-based methods.",
         "tags": [
-            "Machine learning",
-            "Deep learning",
-            "Biometric system evaluation",
+            "Machine Learning",
+            "Deep Learning",
+            "Computer Vision",
             "Python",
-            "OpenCV"
+            "Research"
         ],
         "start_date": "01/10/2024",
         "end_date": "01/01/2025",
@@ -39,12 +39,11 @@
         "title": "Pneumonia detection from Chest X-ray images",
         "description": "Comparison of binary classification techniques using traditional methods and deep learning.",
         "tags": [
-            "Machine learning",
-            "Deep learning",
-            "ResNet50",
-            "Classifiers",
+            "Machine Learning",
+            "Deep Learning",
+            "Computer Vision",
             "Python",
-            "OpenCV"
+            "Research"
         ],
         "start_date": "01/10/2024",
         "end_date": "01/01/2025",
@@ -82,9 +81,15 @@
     },
     {
         "id": 3,
-        "title": "Progettazione e implementazione di un sistema di raccolta dati per l’allenamento di un modello di Machine Learning",
+        "title": "Progettazione e implementazione di un sistema di raccolta dati per l'allenamento di un modello di Machine Learning",
         "description": "This is the internship report for my Bachelor's degree thesis.",
-        "tags": ["Databases", "Data Collection", "REST API", "Backend", "Sensor Data"],
+        "tags": [
+            "Backend",
+            "Database",
+            "API",
+            "Machine Learning",
+            "Mobile"
+        ],
         "start_date": "01/04/2024",
         "end_date": "30/10/2024",
         "content": "This report details the design and implementation of a system for storing data from various sensors on mobile devices. The goal is to collect as much information as possible to create a comprehensive dataset for training a Machine Learning model. The system was developed following REST principles to ensure efficient interaction between the software and the devices. To enhance system robustness, dedicated Unit Tests were implemented, improving the reliability and overall quality of the software.\n\n**Chapter 1** introduces the issue of traffic congestion and the challenges of finding parking in Italian cities, highlighting how these factors negatively impact urban life. The chapter presents _GeneroCity_, a mobile application that allows users to share real-time parking availability information through implicit interaction, leveraging sensors and technologies such as Bluetooth Low Energy (BLE) and Machine Learning.\n\n**Chapter 2** explores the project's architecture, dividing it into backend and frontend modules. It examines the data transfer protocols used, such as HTTP and HTTPS, and discusses the importance of REST APIs. Additionally, it describes the key technologies used in the _GeneroCity_ stack, including GoLang and MariaDB.\n\n**Chapter 3** focuses on software testing, emphasizing the significance of unit testing in ensuring code quality and maintainability. The chapter examines tools such as GO-SQLMock and the creation of a MockFS system to facilitate testing.\n\n**Chapter 4** delves into the implementation of a data collection and management mechanism. It covers database design and the creation of endpoints for interacting with the collected data. Furthermore, it discusses the optimization of these endpoints to improve performance during data transmission.\n\n**Chapter 5** outlines minor contributions to the project, with particular attention to the _GeneroCity BLE_ system and the collection of data related to Bluetooth devices in the user's vicinity.\n",
@@ -102,7 +107,12 @@
         "id": 4,
         "title": "JBlackjack",
         "description": "A Java-based Blackjack game implementation using JavaFX and MVC architecture.",
-        "tags": ["Java", "MVC", "JavaFX", "Card Game"],
+        "tags": [
+            "Java",
+            "MVC",
+            "UI/UX",
+            "Frontend"
+        ],
         "start_date": "01/07/2024",
         "end_date": "01/09/2024",
         "content": "\nJBlackJack is a **JavaFX-based Blackjack game** designed using the **Model-View-Controller (MVC) architecture** to separate game logic, UI, and control mechanisms. It implements key design patterns like **Observer**, allowing the dealer to react dynamically to player actions, and **Singleton**, ensuring single instances of core components like the dealer and game table.\n\nThe project consists of a **Java package**, which contains essential classes (`Giocatore`, `Bot`, `Dealer`, `Mazzo`), custom exceptions, and controllers, and a **resources package** with UI elements and assets. The game follows standard **Blackjack rules**: players log in, configure settings (decks, AI opponents), place bets, and take actions like **Hit, Stand, Double Down, and Split**. The dealer plays according to fixed rules, and winners are determined based on final hand values.\n\nThis project demonstrates **clean architecture, software design patterns, and interactive game mechanics**, making it a solid example of **structured game development in Java**.\n",
@@ -121,7 +131,13 @@
         "id": 5,
         "title": "WasaPhoto",
         "description": "A web application for managing and sharing photos, built using Go and Vue deployed using Docker.",
-        "tags": ["Go", "Vue", "Web Application", "REST API", "Docker", "Swagger"],
+        "tags": [
+            "Web Development",
+            "Backend",
+            "Frontend",
+            "API",
+            "Docker"
+        ],
         "start_date": "01/10/2022",
         "end_date": "01/01/2023",
         "content": "\nWasaPhoto is a **comprehensive web application** designed for managing and sharing photos with ease. The **backend**, built with **Go**, provides a fast and scalable infrastructure, handling large volumes of requests efficiently through a structured **REST API**. On the **frontend**, **Vue.js** ensures a dynamic and user-friendly interface, offering a smooth experience across devices.\n\nTo facilitate development and integration, **Swagger** is used for interactive API documentation, making it easy for developers to explore and test endpoints. **Docker** ensures a **consistent and reproducible deployment environment**, simplifying scaling and maintaining the application across different stages.\n\nBy combining these modern technologies, WasaPhoto delivers a reliable, high-performance, and intuitive solution for users looking to store, organize, and share their photos effortlessly.\n",
@@ -140,7 +156,11 @@
         "id": 6,
         "title": "FAF Company",
         "description": "A company management application built using React and TypeScript.",
-        "tags": ["TypeScript", "React", "Web Application", "Catalog"],
+        "tags": [
+            "Web Development",
+            "Frontend",
+            "UI/UX"
+        ],
         "start_date": "29/03/2023",
         "end_date": "01/07/2023",
         "content": "FAF Company is a web application built to showcase the company's products and services to clients. Developed with React and TypeScript, the frontend offers a robust and type-safe environment for a smooth user experience. The website allows users to browse the product catalog, explore detailed information, and make inquiries. \n\nWith a responsive design, FAF Company ensures optimal functionality across devices, enhancing accessibility and user engagement. By utilizing modern web technologies, the application delivers an intuitive interface and efficient tools for businesses to manage their offerings.",
@@ -159,7 +179,12 @@
         "id": 7,
         "title": "Netwave Project",
         "description": "A network analysis and visualization tool built using Java.",
-        "tags": ["Java", "Demo", "SQL", "Database Design", "PostgreSQL"],
+        "tags": [
+            "Java",
+            "Database",
+            "Backend",
+            "UI/UX"
+        ],
         "start_date": "30/04/2022",
         "end_date": "01/06/2022",
         "content": "Netwave Project is a sophisticated tool designed for network analysis and visualization. Developed entirely in Java, it leverages various libraries and frameworks to provide a robust and efficient system. The tool is capable of analyzing complex network structures and visualizing them in an intuitive, user-friendly manner. Additionally, it includes features for real-time data processing and interactive visualizations. The deployment process is streamlined using Docker, ensuring a consistent environment across different stages of development and production. API documentation is generated using Swagger, making it easier for developers to integrate and extend the tool's functionalities.",
