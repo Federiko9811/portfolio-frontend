@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "Iris Recognition: Traditional vs. Deep Learning Approaches",
-        "description": "Comparison of traditional biometric pipeline vs deep learning-based methods",
+        "description": "Comparison of traditional biometric pipeline vs deep learning-based methods.",
         "tags": [
             "Machine learning",
             "Deep learning",
@@ -15,6 +15,7 @@
         "content": "\nThis project explores the comparison between traditional and deep learning-based approaches for iris recognition. \n\nThe classical pipeline, implemented using the OpenIris library, relies on Gabor filters for feature extraction and Hamming distance for matching. \n\nIn contrast, the deep learning model leverages a ResNet-50 architecture, generating feature embeddings and evaluating similarity using cosine metrics. \n\nBoth methods were evaluated on the CASIA-Iris-Thousand dataset under identical conditions, highlighting the trade-offs between rule-based and data-driven techniques for biometric authentication.\n",
         "github": "https://github.com/lorenzosp01/iris-recognition-system",
         "pdf": "/data/files/iris-recognition/IrisRecognitionProject.pdf",
+        "website": null,
         "authors": [
             {
                 "name": "Federico Raponi",
@@ -36,7 +37,7 @@
     {
         "id": 2,
         "title": "Pneumonia detection from Chest X-ray images",
-        "description": "Comparison of binary classification techniques using traditional methods and deep learning",
+        "description": "Comparison of binary classification techniques using traditional methods and deep learning.",
         "tags": [
             "Machine learning",
             "Deep learning",
@@ -50,6 +51,7 @@
         "content": "This study explores the effectiveness of binary classification techniques for pneumonia detection from chest X-ray images, comparing traditional machine learning methods with deep learning approaches. A key focus is evaluating cross-dataset generalization, assessing whether models trained on one dataset can accurately classify pneumonia in unseen datasets, a crucial factor for real-world clinical applications.  \n  \nUsing three publicly available datasets—Chest X-Ray Images (Pneumonia), CheXpert, and the RSNA Pneumonia Detection Challenge—the research examines the impact of data variability on model performance. Traditional classifiers, including Logistic Regression, K-Nearest Neighbors, Decision Trees, and Support Vector Machines, are tested alongside deep learning models, such as CNNs and ResNet50. Training and testing on different datasets allow for a comprehensive evaluation of model robustness in handling diverse clinical data.  \n  \nThe findings indicate that deep learning models, particularly ResNet50, outperform traditional methods in both intra-dataset and cross-dataset evaluations. However, simpler models like KNN and Logistic Regression exhibit greater stability across datasets, suggesting that their feature extraction methods are less sensitive to domain shifts. Dataset characteristics, such as class imbalance, label inconsistencies, and image quality, play a significant role in determining performance. Fine-tuning classification thresholds using ROC analysis further enhances diagnostic accuracy.  \n  \nThis study underscores the importance of AI-driven diagnostic tools while highlighting the challenges of ensuring model generalization. Future research will focus on integrating multimodal data, addressing dataset biases, and improving model interpretability to enhance AI-assisted pneumonia detection in clinical practice.\n",
         "github": "",
         "pdf": "/data/files/pneumonia-detection/PneumoniaDetection.pdf",
+        "website": null,
         "authors": [
             {
                 "name": "Federico Raponi",
@@ -95,6 +97,86 @@
                 "github": "https://github.com/Federiko9811"
             }
         ]
+    },
+    {
+        "id": 4,
+        "title": "JBlackjack",
+        "description": "A Java-based Blackjack game implementation using JavaFX and MVC architecture.",
+        "tags": ["Java", "MVC", "JavaFX", "Card Game"],
+        "start_date": "01/07/2024",
+        "end_date": "01/09/2024",
+        "content": "\nJBlackJack is a **JavaFX-based Blackjack game** designed using the **Model-View-Controller (MVC) architecture** to separate game logic, UI, and control mechanisms. It implements key design patterns like **Observer**, allowing the dealer to react dynamically to player actions, and **Singleton**, ensuring single instances of core components like the dealer and game table.\n\nThe project consists of a **Java package**, which contains essential classes (`Giocatore`, `Bot`, `Dealer`, `Mazzo`), custom exceptions, and controllers, and a **resources package** with UI elements and assets. The game follows standard **Blackjack rules**: players log in, configure settings (decks, AI opponents), place bets, and take actions like **Hit, Stand, Double Down, and Split**. The dealer plays according to fixed rules, and winners are determined based on final hand values.\n\nThis project demonstrates **clean architecture, software design patterns, and interactive game mechanics**, making it a solid example of **structured game development in Java**.\n",
+        "github": "https://github.com/Federiko9811/jblackjack",
+        "pdf": "/data/files/jblackjack/RelazioneJBlackJack.pdf",
+        "website": null,
+        "authors": [
+            {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": "https://github.com/Federiko9811"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "WasaPhoto",
+        "description": "A web application for managing and sharing photos, built using Go and Vue deployed using Docker.",
+        "tags": ["Go", "Vue", "Web Application", "REST API", "Docker", "Swagger"],
+        "start_date": "01/10/2022",
+        "end_date": "01/01/2023",
+        "content": "\nWasaPhoto is a **comprehensive web application** designed for managing and sharing photos with ease. The **backend**, built with **Go**, provides a fast and scalable infrastructure, handling large volumes of requests efficiently through a structured **REST API**. On the **frontend**, **Vue.js** ensures a dynamic and user-friendly interface, offering a smooth experience across devices.\n\nTo facilitate development and integration, **Swagger** is used for interactive API documentation, making it easy for developers to explore and test endpoints. **Docker** ensures a **consistent and reproducible deployment environment**, simplifying scaling and maintaining the application across different stages.\n\nBy combining these modern technologies, WasaPhoto delivers a reliable, high-performance, and intuitive solution for users looking to store, organize, and share their photos effortlessly.\n",
+        "github": "https://github.com/Federiko9811/WasaPhoto",
+        "pdf": null,
+        "website": null,
+        "authors": [
+            {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": "https://github.com/Federiko9811"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "FAF Company",
+        "description": "A company management application built using React and TypeScript.",
+        "tags": ["TypeScript", "React", "Web Application", "Catalog"],
+        "start_date": "29/03/2023",
+        "end_date": "01/07/2023",
+        "content": "FAF Company is a web application built to showcase the company's products and services to clients. Developed with React and TypeScript, the frontend offers a robust and type-safe environment for a smooth user experience. The website allows users to browse the product catalog, explore detailed information, and make inquiries. \n\nWith a responsive design, FAF Company ensures optimal functionality across devices, enhancing accessibility and user engagement. By utilizing modern web technologies, the application delivers an intuitive interface and efficient tools for businesses to manage their offerings.",
+        "github": null,
+        "pdf": null,
+        "website": "https://fafcompany.com/",
+        "authors": [
+            {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": "https://github.com/Federiko9811"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Netwave Project",
+        "description": "A network analysis and visualization tool built using Java.",
+        "tags": ["Java", "Demo", "SQL", "Database Design", "PostgreSQL"],
+        "start_date": "30/04/2022",
+        "end_date": "01/06/2022",
+        "content": "Netwave Project is a sophisticated tool designed for network analysis and visualization. Developed entirely in Java, it leverages various libraries and frameworks to provide a robust and efficient system. The tool is capable of analyzing complex network structures and visualizing them in an intuitive, user-friendly manner. Additionally, it includes features for real-time data processing and interactive visualizations. The deployment process is streamlined using Docker, ensuring a consistent environment across different stages of development and production. API documentation is generated using Swagger, making it easier for developers to integrate and extend the tool's functionalities.",
+        "github": "https://github.com/Federiko9811/netwave-project",
+        "pdf": null,
+        "website": null,
+        "authors": [
+            {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": "https://github.com/Federiko9811"
+            },
+            {
+                "name": "Lorenzo Spataro",
+                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
+                "github": ""
+            }
+        ]
     }
-
 ]

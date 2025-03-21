@@ -23,5 +23,6 @@ interface Project {
     content: string;
     github?: string | null;
     pdf?: string | null;
+    website?: string | null;
     authors?: Author[];
 }

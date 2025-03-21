@@ -2,7 +2,6 @@ import AboutMe from "@/components/sections/about-me";
 import IntroductionBanner from "@/components/sections/introduction-banner";
 import Projects from "@/components/sections/projects";
 import Skills from "@/components/sections/skills";
-import Certifications from "@/components/sections/certifications";
 
 export default function Home() {
     return (
@@ -18,7 +17,7 @@ export default function Home() {
 
                     <Skills/>
 
-                    <Certifications/>
+                    {/*<Certifications/>*/}
                 </main>
             </div>
         </div>

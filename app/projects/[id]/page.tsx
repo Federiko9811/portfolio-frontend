@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import BaseContainer from "@/components/containers/base-container";
 import projects from "@/data/projects.json";
 import {Button} from "@/components/ui/button";
-import {FileText} from "lucide-react";
+import {FileText, Globe} from "lucide-react";
 import {useParams} from "next/navigation";
 import {Badge} from "@/components/ui/badge";
 import {
@@ -75,17 +75,34 @@ const ProjectPage = () => {
                     <h3>
                         More Resources
                     </h3>
+
                     <div className={"flex gap-4 "}>
-                        <a
-                            href={project.pdf}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Button>
-                                View PDF
-                                <FileText className="h-4 w-4"/>
-                            </Button>
-                        </a>
+                        {project.pdf ? (
+                            <a
+                                href={project.pdf}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button>
+                                    View PDF
+                                    <FileText className="h-4 w-4"/>
+                                </Button>
+                            </a>
+                        ) : null}
+
+                        {project.website ? (
+                            <a
+                                href={project.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button>
+                                    Go to Website
+                                    <Globe className="h-4 w-4"/>
+                                </Button>
+                            </a>
+                        ) : null}
+
                         {project.github ? (
                             <a
                                 href={project.github}
