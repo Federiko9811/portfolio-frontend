@@ -22,10 +22,13 @@ const IntroductionBanner = () => {
                             </p>
                         </div>
                         <div className="flex gap-6 flex-row items-center justify-center md:justify-start">
-                            <Link href="#projects">
+                            <Link
+                                href="#projects"
+                                className={"group"}
+                            >
                                 <Button>
                                     View My Projects
-                                    <ArrowRight className="ml-2 h-4 w-4"/>
+                                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"/>
                                 </Button>
                             </Link>
                             <Link href="#contact">
