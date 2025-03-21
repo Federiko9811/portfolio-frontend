@@ -20,7 +20,7 @@ const AboutMe = () => {
                         </p>
                     </div>
                     <div
-                        className="grid items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+                        className="grid items-center gap-6 pt-12 lg:grid-cols-2 lg:gap-12">
                         <div className="flex flex-col justify-center space-y-4">
                             <ul className="grid gap-6">
                                 <li>

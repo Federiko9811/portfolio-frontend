@@ -11,7 +11,7 @@ interface ProjectCardProps {
 export function ProjectCard({project}: ProjectCardProps) {
 
     return (
-        <Card className="overflow-hidden transition-all rounded-lg bg-muted/40 border-none hover:shadow-lg">
+        <Card className="overflow-hidden transition-all rounded-lg bg-muted/40 border-none hover:shadow-lg justify-between">
             <CardContent className="p-6">
                 <div
                     className="flex justify-center text-xs text-gray-500 mb-2 font-semibold"

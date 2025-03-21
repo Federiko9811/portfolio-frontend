@@ -19,7 +19,7 @@
             {
                 "name": "Federico Raponi",
                 "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": ""
+                "github": "https://github.com/Federiko9811"
             },
             {
                 "name": "Alessio Pannozzo",
@@ -54,7 +54,7 @@
             {
                 "name": "Federico Raponi",
                 "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": ""
+                "github": "https://github.com/Federiko9811"
             },
             {
                 "name": "Marco Realacci",
@@ -77,5 +77,24 @@
                 "github": ""
             }
         ]
+    },
+    {
+        "id": 3,
+        "title": "Progettazione e implementazione di un sistema di raccolta dati per l’allenamento di un modello di Machine Learning",
+        "description": "This is the internship report for my Bachelor's degree thesis.",
+        "tags": ["Databases", "Data Collection", "REST API", "Backend", "Sensor Data"],
+        "start_date": "01/04/2024",
+        "end_date": "30/10/2024",
+        "content": "This report details the design and implementation of a system for storing data from various sensors on mobile devices. The goal is to collect as much information as possible to create a comprehensive dataset for training a Machine Learning model. The system was developed following REST principles to ensure efficient interaction between the software and the devices. To enhance system robustness, dedicated Unit Tests were implemented, improving the reliability and overall quality of the software.\n\n**Chapter 1** introduces the issue of traffic congestion and the challenges of finding parking in Italian cities, highlighting how these factors negatively impact urban life. The chapter presents _GeneroCity_, a mobile application that allows users to share real-time parking availability information through implicit interaction, leveraging sensors and technologies such as Bluetooth Low Energy (BLE) and Machine Learning.\n\n**Chapter 2** explores the project's architecture, dividing it into backend and frontend modules. It examines the data transfer protocols used, such as HTTP and HTTPS, and discusses the importance of REST APIs. Additionally, it describes the key technologies used in the _GeneroCity_ stack, including GoLang and MariaDB.\n\n**Chapter 3** focuses on software testing, emphasizing the significance of unit testing in ensuring code quality and maintainability. The chapter examines tools such as GO-SQLMock and the creation of a MockFS system to facilitate testing.\n\n**Chapter 4** delves into the implementation of a data collection and management mechanism. It covers database design and the creation of endpoints for interacting with the collected data. Furthermore, it discusses the optimization of these endpoints to improve performance during data transmission.\n\n**Chapter 5** outlines minor contributions to the project, with particular attention to the _GeneroCity BLE_ system and the collection of data related to Bluetooth devices in the user's vicinity.\n",
+        "github": null,
+        "pdf": "/data/files/tirocinio/RelazioneTirocinioL31_Raponi.pdf",
+        "authors": [
+            {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": "https://github.com/Federiko9811"
+            }
+        ]
     }
+
 ]

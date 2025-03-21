@@ -8,6 +8,12 @@ import {Button} from "@/components/ui/button";
 import {FileText} from "lucide-react";
 import {useParams} from "next/navigation";
 import {Badge} from "@/components/ui/badge";
+import {
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
 
 const ProjectPage = () => {
 
@@ -80,18 +86,33 @@ const ProjectPage = () => {
                                 <FileText className="h-4 w-4"/>
                             </Button>
                         </a>
-
-                        <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Button
-                                variant={"secondary"}
+                        {project.github ? (
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                Open on GitHub
-                            </Button>
-                        </a>
+                                <Button
+                                    variant={"secondary"}
+                                >
+                                    Open on GitHub
+                                </Button>
+                            </a>
+                        ) : (
+                            <HoverCard>
+                                <HoverCardTrigger>
+                                    <Button
+                                        variant={"secondary"}
+                                        disabled
+                                    >
+                                        GitHub Repository Not Available
+                                    </Button>
+                                </HoverCardTrigger>
+                                <HoverCardContent>
+                                    This repository is private, please contact the authors for more information.
+                                </HoverCardContent>
+                            </HoverCard>
+                        )}
                     </div>
                 </div>
             </div>
