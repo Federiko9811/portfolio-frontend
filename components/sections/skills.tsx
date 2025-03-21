@@ -3,6 +3,41 @@ import {SkillBadge} from "@/components/badges/skill-badge";
 import BaseContainer from "@/components/containers/base-container";
 
 const Skills = () => {
+
+    const programmingLanguages = [
+        "Go",
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "Java",
+        "SQL"
+    ];
+
+    const webDevelopment = [
+        "React",
+        "Next.js",
+        "Django REST",
+        "Gin",
+        "Tailwind CSS",
+        "Shadcn"
+    ];
+
+    const dataScienceAI = [
+        "PyTorch",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy",
+    ];
+
+    const toolsPlatforms = [
+        "Git",
+        "Docker",
+        "AWS - S3, RDS",
+        "Firebase",
+        "Proxmox",
+        "PostgreSQL"
+    ];
+
     return (
         <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
             <BaseContainer>
@@ -18,45 +53,33 @@ const Skills = () => {
                         <div className="space-y-4">
                             <h3 className="text-xl font-bold">Programming Languages</h3>
                             <div className="flex flex-wrap gap-2">
-                                <SkillBadge name="Python"/>
-                                <SkillBadge name="JavaScript"/>
-                                <SkillBadge name="TypeScript"/>
-                                <SkillBadge name="Java"/>
-                                <SkillBadge name="C++"/>
-                                <SkillBadge name="SQL"/>
+                                {programmingLanguages.map((language) => (
+                                    <SkillBadge key={language} name={language}/>
+                                ))}
                             </div>
                         </div>
                         <div className="space-y-4">
                             <h3 className="text-xl font-bold">Web Development</h3>
                             <div className="flex flex-wrap gap-2">
-                                <SkillBadge name="React"/>
-                                <SkillBadge name="Next.js"/>
-                                <SkillBadge name="Node.js"/>
-                                <SkillBadge name="Express"/>
-                                <SkillBadge name="HTML/CSS"/>
-                                <SkillBadge name="Tailwind CSS"/>
+                                {webDevelopment.map((technology) => (
+                                    <SkillBadge key={technology} name={technology}/>
+                                ))}
                             </div>
                         </div>
                         <div className="space-y-4">
                             <h3 className="text-xl font-bold">Data Science & AI</h3>
                             <div className="flex flex-wrap gap-2">
-                                <SkillBadge name="TensorFlow"/>
-                                <SkillBadge name="PyTorch"/>
-                                <SkillBadge name="Scikit-learn"/>
-                                <SkillBadge name="Pandas"/>
-                                <SkillBadge name="NumPy"/>
-                                <SkillBadge name="NLTK"/>
+                                {dataScienceAI.map((technology) => (
+                                    <SkillBadge key={technology} name={technology}/>
+                                ))}
                             </div>
                         </div>
                         <div className="space-y-4">
                             <h3 className="text-xl font-bold">Tools & Platforms</h3>
                             <div className="flex flex-wrap gap-2">
-                                <SkillBadge name="Git"/>
-                                <SkillBadge name="Docker"/>
-                                <SkillBadge name="AWS"/>
-                                <SkillBadge name="Firebase"/>
-                                <SkillBadge name="MongoDB"/>
-                                <SkillBadge name="PostgreSQL"/>
+                                {toolsPlatforms.map((technology) => (
+                                    <SkillBadge key={technology} name={technology}/>
+                                ))}
                             </div>
                         </div>
                     </div>
