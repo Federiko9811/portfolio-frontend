@@ -1,12 +1,12 @@
 'use client'
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import {usePathname} from "next/navigation";
 import BaseContainer from "@/components/containers/base-container";
-import { DownloadIcon, MenuIcon } from "lucide-react";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { motion, AnimatePresence } from "framer-motion";
+import {DownloadIcon, MenuIcon} from "lucide-react";
+import {Sheet, SheetContent, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
+import {AnimatePresence, motion} from "framer-motion";
+import ZoomInButton from "@/components/buttons/zoom-in-button";
 
 interface SectionLink {
     name: string;
@@ -55,8 +55,8 @@ const Navbar = () => {
     return (
         <motion.header
             className="sticky top-0 z-40 w-full border-b bg-background/10 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/80"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{opacity: 0, y: -20}}
+            animate={{opacity: 1, y: 0}}
             transition={{
                 duration: 0.5,
                 ease: "easeOut"
@@ -69,8 +69,8 @@ const Navbar = () => {
                             {sectionLinks.map((link, index) => (
                                 <motion.div
                                     key={link.href}
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    initial={{opacity: 0, y: -10}}
+                                    animate={{opacity: 1, y: 0}}
                                     transition={{
                                         delay: 0.1 * index,
                                         duration: 0.4
@@ -83,9 +83,9 @@ const Navbar = () => {
                                         {link.name}
                                         <motion.span
                                             className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full"
-                                            initial={{ width: 0 }}
-                                            whileHover={{ width: '100%' }}
-                                            transition={{ duration: 0.3 }}
+                                            initial={{width: 0}}
+                                            whileHover={{width: '100%'}}
+                                            transition={{duration: 0.3}}
                                         />
                                     </Link>
                                 </motion.div>
@@ -97,8 +97,8 @@ const Navbar = () => {
                             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                                 <SheetTrigger>
                                     <motion.div
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 0.9 }}
+                                        whileHover={{scale: 1.1}}
+                                        whileTap={{scale: 0.9}}
                                     >
                                         <MenuIcon/>
                                     </motion.div>
@@ -114,9 +114,9 @@ const Navbar = () => {
                                                 {sectionLinks.map((link, index) => (
                                                     <motion.div
                                                         key={link.href}
-                                                        initial={{ opacity: 0, x: -20 }}
-                                                        animate={{ opacity: 1, x: 0 }}
-                                                        exit={{ opacity: 0, x: -20 }}
+                                                        initial={{opacity: 0, x: -20}}
+                                                        animate={{opacity: 1, x: 0}}
+                                                        exit={{opacity: 0, x: -20}}
                                                         transition={{
                                                             delay: 0.05 * index,
                                                             duration: 0.3
@@ -141,26 +141,26 @@ const Navbar = () => {
                     <div className="flex flex-1 items-center justify-end space-x-4">
                         <nav className="flex items-center space-x-1">
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.5, duration: 0.4 }}
+                                initial={{opacity: 0, scale: 0.9}}
+                                animate={{opacity: 1, scale: 1}}
+                                transition={{delay: 0.5, duration: 0.4}}
                             >
                                 <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
+                                    whileHover={{scale: 1.05}}
+                                    whileTap={{scale: 0.95}}
                                 >
-                                    <Button
-                                        className={"p-5 hidden md:flex"}
-                                    >
-                                        Download CV
-                                        <DownloadIcon className="ml-2 h-4 w-4"/>
-                                    </Button>
-                                    <Button
-                                        className={"p-5 md:hidden"}
-                                    >
-                                        CV
-                                        <DownloadIcon className="ml-2 h-4 w-4"/>
-                                    </Button>
+                                    <ZoomInButton
+                                        text={"Download CV"}
+                                        icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
+                                        className={"hidden md:flex"}
+                                        variant={"secondary"}
+                                    />
+                                    <ZoomInButton
+                                        text={"CV"}
+                                        icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
+                                        className={"md:hidden"}
+                                        variant={"secondary"}
+                                    />
                                 </motion.div>
                             </motion.div>
                         </nav>

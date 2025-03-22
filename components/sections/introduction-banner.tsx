@@ -1,12 +1,12 @@
 'use client'
 import React, {useRef} from 'react';
 import Link from "next/link";
-import {Button} from "@/components/ui/button";
 import {ArrowRight} from "lucide-react";
 import Image from "next/image";
 import codeThinking from "@/assets/images/code-thinking.svg";
 import BaseContainer from "@/components/containers/base-container";
 import {motion, useInView} from "framer-motion";
+import ZoomInButton from "@/components/buttons/zoom-in-button";
 
 const IntroductionBanner = () => {
     const sectionRef = useRef(null);
@@ -60,35 +60,30 @@ const IntroductionBanner = () => {
                                 href="#projects"
                                 className={"group"}
                             >
-                                <motion.div
-                                    whileHover={{scale: 1.05}}
-                                    whileTap={{scale: 0.95}}
-                                >
-                                    <Button
-                                        className={"hidden md:flex"}
-                                    >
-                                        View My Projects
+                                <ZoomInButton
+                                    text={"View My Projects"}
+                                    icon={
                                         <ArrowRight
-                                            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"/>
-                                    </Button>
-                                    <Button
-                                        className={"flex md:hidden"}
-                                    >
-                                        Projects
+                                            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                                        />
+                                    }
+                                    className={"hidden md:flex"}
+                                />
+                                <ZoomInButton
+                                    text={"Projects"}
+                                    icon={
                                         <ArrowRight
-                                            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"/>
-                                    </Button>
-                                </motion.div>
+                                            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+                                        />
+                                    }
+                                    className={"md:hidden"}
+                                />
                             </Link>
                             <Link href="#contact">
-                                <motion.div
-                                    whileHover={{scale: 1.05}}
-                                    whileTap={{scale: 0.95}}
-                                >
-                                    <Button variant="secondary">
-                                        Contact Me
-                                    </Button>
-                                </motion.div>
+                                <ZoomInButton
+                                    text={"Contact Me"}
+                                    variant={"secondary"}
+                                />
                             </Link>
                         </motion.div>
                     </motion.div>

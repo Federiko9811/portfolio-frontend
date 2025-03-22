@@ -1,13 +1,13 @@
 "use client"
-import {useEffect, useState, useRef} from "react"
+import {useEffect, useRef, useState} from "react"
 import {ProjectCard} from "@/components/cards/project-card"
 import BaseContainer from "@/components/containers/base-container"
 import projectsList from "@/data/projects.json"
-import {Button} from "@/components/ui/button"
 import {ArrowDown, Search} from "lucide-react"
 import {Input} from "@/components/ui/input"
 import {Badge} from "@/components/ui/badge"
 import {motion, useInView} from "framer-motion"
+import ZoomInButton from "@/components/buttons/zoom-in-button";
 
 const Projects = () => {
     const [visibleCount, setVisibleCount] = useState(6)
@@ -17,7 +17,7 @@ const Projects = () => {
 
     // Reference for scroll animation
     const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+    const isInView = useInView(sectionRef, {once: true, amount: 0.1});
 
     // Sort projects by date (newest first)
     const projects: Project[] = projectsList.sort((a, b) => {
@@ -90,23 +90,23 @@ const Projects = () => {
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                     <motion.div
                         className="space-y-2"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                        transition={{ duration: 0.6 }}
+                        initial={{opacity: 0, y: 20}}
+                        animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 20}}
+                        transition={{duration: 0.6}}
                     >
                         <motion.h2
                             className="text-3xl font-bold tracking-tighter sm:text-5xl"
-                            initial={{ opacity: 0 }}
-                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
+                            initial={{opacity: 0}}
+                            animate={isInView ? {opacity: 1} : {opacity: 0}}
+                            transition={{delay: 0.2, duration: 0.5}}
                         >
                             Projects
                         </motion.h2>
                         <motion.p
                             className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
-                            initial={{ opacity: 0 }}
-                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ delay: 0.3, duration: 0.6 }}
+                            initial={{opacity: 0}}
+                            animate={isInView ? {opacity: 1} : {opacity: 0}}
+                            transition={{delay: 0.3, duration: 0.6}}
                         >
                             Explore my portfolio of projects spanning various domains and technologies.
                         </motion.p>
@@ -115,9 +115,9 @@ const Projects = () => {
                     {/* Search and filter section */}
                     <motion.div
                         className="w-full max-w-3xl mt-8 space-y-4"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                        transition={{ delay: 0.4, duration: 0.5 }}
+                        initial={{opacity: 0, y: 10}}
+                        animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 10}}
+                        transition={{delay: 0.4, duration: 0.5}}
                     >
                         <div className="relative">
                             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"/>
@@ -134,16 +134,16 @@ const Projects = () => {
 
                         <motion.div
                             className="flex flex-wrap gap-2 justify-center"
-                            initial={{ opacity: 0 }}
-                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ delay: 0.5, duration: 0.5 }}
+                            initial={{opacity: 0}}
+                            animate={isInView ? {opacity: 1} : {opacity: 0}}
+                            transition={{delay: 0.5, duration: 0.5}}
                         >
                             {allTags.map((tag, index) => (
                                 <motion.div
                                     key={tag}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-                                    transition={{ delay: 0.5 + (index * 0.03), duration: 0.4 }}
+                                    initial={{opacity: 0, scale: 0.9}}
+                                    animate={isInView ? {opacity: 1, scale: 1} : {opacity: 0, scale: 0.9}}
+                                    transition={{delay: 0.5 + (index * 0.03), duration: 0.4}}
                                 >
                                     <Badge
                                         variant={selectedTags.includes(tag) ? "accent" : "outline"}
@@ -174,9 +174,9 @@ const Projects = () => {
                     ) : (
                         <motion.div
                             className="py-12 text-center"
-                            initial={{ opacity: 0 }}
-                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ delay: 0.6, duration: 0.4 }}
+                            initial={{opacity: 0}}
+                            animate={isInView ? {opacity: 1} : {opacity: 0}}
+                            transition={{delay: 0.6, duration: 0.4}}
                         >
                             <p className="text-muted-foreground">No projects match your search criteria.</p>
                         </motion.div>
@@ -189,29 +189,20 @@ const Projects = () => {
                             initial={{opacity: 0, y: 10}}
                             animate={{opacity: 1, y: 0}}
                             transition={{delay: 0.3}}
+                            onClick={loadMoreProjects}
                         >
-                            <motion.div
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <Button
-                                    variant="secondary"
-                                    onClick={loadMoreProjects}
-                                    className="group hidden md:flex"
-                                >
-                                    View More Projects
-                                    <ArrowDown className="h-4 w-4 ml-2"/>
-                                </Button>
-                                <Button
-                                    variant="secondary"
-                                    onClick={loadMoreProjects}
-                                    className="group md:hidden"
-                                >
-                                    More
-                                    <ArrowDown className="h-4 w-4 ml-2"/>
-                                </Button>
-                            </motion.div>
-
+                            <ZoomInButton
+                                text={"View More Projects"}
+                                icon={<ArrowDown className="h-4 w-4 ml-2"/>}
+                                variant={"secondary"}
+                                className={"hidden md:flex"}
+                            />
+                            <ZoomInButton
+                                text={"More"}
+                                icon={<ArrowDown className="h-4 w-4 ml-2"/>}
+                                variant={"secondary"}
+                                className={"md:hidden"}
+                            />
                         </motion.div>
                     )}
                 </div>

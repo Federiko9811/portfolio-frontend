@@ -3,6 +3,7 @@ import {Card, CardContent, CardFooter} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
 import {formatDateRange} from "@/utils/format-date-range"
 import {ArrowRight} from "lucide-react"
+import ZoomInButton from "@/components/buttons/zoom-in-button";
 
 interface ProjectCardProps {
     project: Project
@@ -34,10 +35,15 @@ export function ProjectCard({project}: ProjectCardProps) {
             <CardFooter className="p-6 pt-0">
                 <Link
                     href={`/projects/${project.id}`}
-                    className="inline-flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                    className={"w-full"}
                 >
-                    <span className="mr-2">View Project</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
+                    <ZoomInButton
+                        className={"w-full"}
+                        text={"View Project"}
+                        icon={
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
+                        }
+                    />
                 </Link>
             </CardFooter>
         </Card>
