@@ -190,14 +190,28 @@ const Projects = () => {
                             animate={{opacity: 1, y: 0}}
                             transition={{delay: 0.3}}
                         >
-                            <Button
-                                variant="secondary"
-                                onClick={loadMoreProjects}
-                                className="group"
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
-                                View More Projects
-                                <ArrowDown className="h-4 w-4 ml-2 group-hover:translate-y-1 transition-transform"/>
-                            </Button>
+                                <Button
+                                    variant="secondary"
+                                    onClick={loadMoreProjects}
+                                    className="group hidden md:flex"
+                                >
+                                    View More Projects
+                                    <ArrowDown className="h-4 w-4 ml-2"/>
+                                </Button>
+                                <Button
+                                    variant="secondary"
+                                    onClick={loadMoreProjects}
+                                    className="group md:hidden"
+                                >
+                                    More
+                                    <ArrowDown className="h-4 w-4 ml-2"/>
+                                </Button>
+                            </motion.div>
+
                         </motion.div>
                     )}
                 </div>

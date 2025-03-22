@@ -64,8 +64,17 @@ const IntroductionBanner = () => {
                                     whileHover={{scale: 1.05}}
                                     whileTap={{scale: 0.95}}
                                 >
-                                    <Button>
+                                    <Button
+                                        className={"hidden md:flex"}
+                                    >
                                         View My Projects
+                                        <ArrowRight
+                                            className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"/>
+                                    </Button>
+                                    <Button
+                                        className={"flex md:hidden"}
+                                    >
+                                        Projects
                                         <ArrowRight
                                             className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"/>
                                     </Button>
