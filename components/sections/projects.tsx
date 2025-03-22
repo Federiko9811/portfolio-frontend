@@ -1,5 +1,5 @@
 "use client"
-import {useEffect, useState} from "react"
+import {useEffect, useState, useRef} from "react"
 import {ProjectCard} from "@/components/cards/project-card"
 import BaseContainer from "@/components/containers/base-container"
 import projectsList from "@/data/projects.json"
@@ -7,13 +7,17 @@ import {Button} from "@/components/ui/button"
 import {ArrowDown, Search} from "lucide-react"
 import {Input} from "@/components/ui/input"
 import {Badge} from "@/components/ui/badge"
-import {motion} from "framer-motion"
+import {motion, useInView} from "framer-motion"
 
 const Projects = () => {
     const [visibleCount, setVisibleCount] = useState(6)
     const [searchTerm, setSearchTerm] = useState("")
     const [selectedTags, setSelectedTags] = useState<string[]>([])
     const [allTags, setAllTags] = useState<string[]>([])
+
+    // Reference for scroll animation
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
     // Sort projects by date (newest first)
     const projects: Project[] = projectsList.sort((a, b) => {
@@ -60,6 +64,7 @@ const Projects = () => {
         setVisibleCount(6)
     }
 
+    // Keep your existing animation variants
     const container = {
         hidden: {opacity: 0},
         show: {
@@ -76,18 +81,44 @@ const Projects = () => {
     }
 
     return (
-        <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
+        <section
+            id="projects"
+            className="w-full py-12 md:py-24 lg:py-32"
+            ref={sectionRef}
+        >
             <BaseContainer>
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div className="space-y-2">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Projects</h2>
-                        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    <motion.div
+                        className="space-y-2"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <motion.h2
+                            className="text-3xl font-bold tracking-tighter sm:text-5xl"
+                            initial={{ opacity: 0 }}
+                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                        >
+                            Projects
+                        </motion.h2>
+                        <motion.p
+                            className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
+                            initial={{ opacity: 0 }}
+                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                            transition={{ delay: 0.3, duration: 0.6 }}
+                        >
                             Explore my portfolio of projects spanning various domains and technologies.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
                     {/* Search and filter section */}
-                    <div className="w-full max-w-3xl mt-8 space-y-4">
+                    <motion.div
+                        className="w-full max-w-3xl mt-8 space-y-4"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                    >
                         <div className="relative">
                             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"/>
                             <Input
@@ -101,27 +132,38 @@ const Projects = () => {
                             />
                         </div>
 
-                        <div className="flex flex-wrap gap-2 justify-center">
-                            {allTags.map((tag) => (
-                                <Badge
+                        <motion.div
+                            className="flex flex-wrap gap-2 justify-center"
+                            initial={{ opacity: 0 }}
+                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                            transition={{ delay: 0.5, duration: 0.5 }}
+                        >
+                            {allTags.map((tag, index) => (
+                                <motion.div
                                     key={tag}
-                                    variant={selectedTags.includes(tag) ? "accent" : "outline"}
-                                    className="cursor-pointer hover:opacity-80 transition-all"
-                                    onClick={() => toggleTag(tag)}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                                    transition={{ delay: 0.5 + (index * 0.03), duration: 0.4 }}
                                 >
-                                    {tag}
-                                </Badge>
+                                    <Badge
+                                        variant={selectedTags.includes(tag) ? "accent" : "outline"}
+                                        className="cursor-pointer hover:opacity-80 transition-all"
+                                        onClick={() => toggleTag(tag)}
+                                    >
+                                        {tag}
+                                    </Badge>
+                                </motion.div>
                             ))}
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
-                    {/* Projects grid */}
+                    {/* Projects grid - Keeping your existing animation but making it conditional on scroll */}
                     {filteredProjects.length > 0 ? (
                         <motion.div
                             className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8 mt-10"
                             variants={container}
                             initial="hidden"
-                            animate="show"
+                            animate={isInView ? "show" : "hidden"}
                         >
                             {visibleProjects.map((project: Project) => (
                                 <motion.div key={project.id} variants={item}>
@@ -130,12 +172,17 @@ const Projects = () => {
                             ))}
                         </motion.div>
                     ) : (
-                        <div className="py-12 text-center">
+                        <motion.div
+                            className="py-12 text-center"
+                            initial={{ opacity: 0 }}
+                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                            transition={{ delay: 0.6, duration: 0.4 }}
+                        >
                             <p className="text-muted-foreground">No projects match your search criteria.</p>
-                        </div>
+                        </motion.div>
                     )}
 
-                    {/* Load more button */}
+                    {/* Load more button - Keeping your existing animation */}
                     {hasMoreProjects && (
                         <motion.div
                             className="mt-8"
@@ -143,7 +190,11 @@ const Projects = () => {
                             animate={{opacity: 1, y: 0}}
                             transition={{delay: 0.3}}
                         >
-                            <Button variant="secondary" onClick={loadMoreProjects} className="group">
+                            <Button
+                                variant="secondary"
+                                onClick={loadMoreProjects}
+                                className="group"
+                            >
                                 View More Projects
                                 <ArrowDown className="h-4 w-4 ml-2 group-hover:translate-y-1 transition-transform"/>
                             </Button>
@@ -156,4 +207,3 @@ const Projects = () => {
 }
 
 export default Projects
-
