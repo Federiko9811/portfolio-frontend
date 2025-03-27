@@ -5,6 +5,7 @@ import {ThemeProvider} from "@/components/providers/theme-provider";
 import {Toaster} from "@/components/ui/sonner"
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import Script from "next/script";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -31,6 +32,10 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+        <Script
+            src="https://umami.federicoraponi.it/script.js"
+            data-website-id="9ade7300-70f2-40bb-887b-cd23915ab4b6"
+        />
         <ThemeProvider
             attribute="class"
             defaultTheme="light"
