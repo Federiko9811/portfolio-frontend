@@ -148,20 +148,20 @@ const Navbar = () => {
                                 <motion.div
                                     whileHover={{scale: 1.05}}
                                     whileTap={{scale: 0.95}}
+                                    id="download-cv-button"
+                                    data-umami-event="Download cv button"
                                 >
                                     <ZoomInButton
                                         text={"Download CV"}
                                         icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
                                         className={"hidden md:flex"}
                                         variant={"secondary"}
-                                        data-umami-event="Download CV Button"
                                     />
                                     <ZoomInButton
                                         text={"CV"}
                                         icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
                                         className={"md:hidden"}
                                         variant={"secondary"}
-                                        data-umami-event="Download CV Button"
                                     />
                                 </motion.div>
                             </motion.div>
