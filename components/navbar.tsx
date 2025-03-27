@@ -154,12 +154,14 @@ const Navbar = () => {
                                         icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
                                         className={"hidden md:flex"}
                                         variant={"secondary"}
+                                        data-umami-event="Download CV Button"
                                     />
                                     <ZoomInButton
                                         text={"CV"}
                                         icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
                                         className={"md:hidden"}
                                         variant={"secondary"}
+                                        data-umami-event="Download CV Button"
                                     />
                                 </motion.div>
                             </motion.div>
