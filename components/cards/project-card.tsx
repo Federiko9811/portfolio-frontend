@@ -51,6 +51,7 @@ export function ProjectCard({project}: ProjectCardProps) {
                         icon={
                             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
                         }
+                        variant={"accent"}
                     />
                 </Link>
             </CardFooter>

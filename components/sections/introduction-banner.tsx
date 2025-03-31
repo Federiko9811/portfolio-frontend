@@ -27,19 +27,30 @@ const IntroductionBanner = () => {
                         transition={{duration: 0.5}}
                     >
                         <motion.div
-                            className="space-y-2"
+                            className="space-y-4"
                             initial={{opacity: 0}}
                             animate={isInView ? {opacity: 1} : {opacity: 0}}
                             transition={{delay: 0.2, duration: 0.5}}
                         >
-                            <motion.h1
-                                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-center md:text-start"
-                                initial={{opacity: 0, y: 10}}
-                                animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 10}}
-                                transition={{delay: 0.3, duration: 0.5}}
-                            >
-                                Computer Science Master&apos;s Student
-                            </motion.h1>
+                            <div className={"grid"}>
+                                <motion.h1
+                                    className="text-2xl font-bold text-accent tracking-tighter sm:text-3xl xl:text-4xl/none text-center md:text-start"
+                                    initial={{opacity: 0, y: 10}}
+                                    animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 10}}
+                                    transition={{delay: 0.3, duration: 0.5}}
+                                >
+                                    Federico Raponi
+                                </motion.h1>
+                                <motion.h1
+                                    className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-center md:text-start"
+                                    initial={{opacity: 0, y: 10}}
+                                    animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 10}}
+                                    transition={{delay: 0.3, duration: 0.5}}
+                                >
+                                    Computer Science Master&apos;s Student
+                                </motion.h1>
+                            </div>
+
                             <motion.p
                                 className="text-muted-foreground md:text-xl text-center md:text-start"
                                 initial={{opacity: 0, y: 10}}
@@ -68,6 +79,7 @@ const IntroductionBanner = () => {
                                         />
                                     }
                                     className={"hidden md:flex"}
+                                    variant={"accent"}
                                 />
                                 <ZoomInButton
                                     text={"Projects"}
@@ -77,6 +89,7 @@ const IntroductionBanner = () => {
                                         />
                                     }
                                     className={"md:hidden"}
+                                    variant={"accent"}
                                 />
                             </Link>
                             <Link href="#contact">

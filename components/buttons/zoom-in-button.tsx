@@ -6,7 +6,7 @@ import {cn} from "@/lib/utils";
 interface ZoomInButtonProps {
     text: string;
     icon?: ReactElement;
-    variant?: "default" | "secondary" | "outline" | "ghost" | "link" | "destructive";
+    variant?: "default" | "secondary" | "outline" | "ghost" | "link" | "destructive" | "accent";
     className?: string;
 }
 
