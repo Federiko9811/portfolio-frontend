@@ -116,6 +116,7 @@ const ProjectPage = () => {
                                     <ZoomInButton
                                         text={"Report"}
                                         icon={<FileText className="ml-2 h-4 w-4"/>}
+                                        variant={"accent"}
                                     />
                                 </a>
                             </motion.div>
@@ -137,6 +138,7 @@ const ProjectPage = () => {
                                     <ZoomInButton
                                         text={"Website"}
                                         icon={<Globe className="ml-2 h-4 w-4"/>}
+                                        variant={"accent"}
                                     />
                                 </a>
                             </motion.div>
