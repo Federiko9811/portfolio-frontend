@@ -24,7 +24,7 @@ export function ProjectCard({project}: ProjectCardProps) {
                 <div className="flex justify-center text-xs text-gray-500 mb-2 font-semibold">
                     {formatDateRange(project.start_date, project.end_date)}
                 </div>
-                <h3 className="text-xl font-bold group-hover:text-accent transition-colors">{project.title}</h3>
+                <h3 className="text-xl font-bold">{project.title}</h3>
                 <p className="mt-2 text-muted-foreground text-sm line-clamp-3">{project.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2 items-center justify-center">
                     {project.tags.slice(0, 3).map((tag) => (
