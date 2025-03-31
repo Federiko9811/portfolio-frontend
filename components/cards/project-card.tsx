@@ -10,6 +10,13 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({project}: ProjectCardProps) {
+
+    const handleTrackOpenProject = (projectTitle: string) => {
+        if (typeof window !== 'undefined' && typeof window.umami !== 'undefined') {
+            window.umami.track('Open Project', {project: projectTitle});
+        }
+    }
+
     return (
         <Card
             className="overflow-hidden transition-all rounded-lg bg-muted/40 border-none hover:shadow-lg flex flex-col h-full group">
@@ -36,6 +43,7 @@ export function ProjectCard({project}: ProjectCardProps) {
                 <Link
                     href={`/projects/${project.id}`}
                     className={"w-full"}
+                    onClick={() => handleTrackOpenProject(project.title)}
                 >
                     <ZoomInButton
                         className={"w-full"}
