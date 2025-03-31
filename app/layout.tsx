@@ -53,3 +53,12 @@ export default function RootLayout({
         </html>
     );
 }
+
+// Add TypeScript declaration for window.umami
+declare global {
+    interface Window {
+        umami?: {
+            track: (eventName: string, eventData?: Record<string, any>) => void;
+        }
+    }
+}

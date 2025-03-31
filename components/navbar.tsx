@@ -52,6 +52,12 @@ const Navbar = () => {
         return isHomePage ? href : `/${href}`;
     };
 
+    const handleCVDownload = () => {
+        if (typeof window !== 'undefined' && typeof window.umami !== 'undefined') {
+            window.umami.track('Download CV');
+        }
+    };
+
     return (
         <motion.header
             className="sticky top-0 z-40 w-full border-b bg-background/10 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/80"
@@ -91,6 +97,7 @@ const Navbar = () => {
                                 </motion.div>
                             ))}
                         </nav>
+
                         <div
                             className={"md:hidden items-center flex"}
                         >
@@ -144,12 +151,11 @@ const Navbar = () => {
                                 initial={{opacity: 0, scale: 0.9}}
                                 animate={{opacity: 1, scale: 1}}
                                 transition={{delay: 0.5, duration: 0.4}}
+                                onClick={handleCVDownload}
                             >
                                 <motion.div
                                     whileHover={{scale: 1.05}}
                                     whileTap={{scale: 0.95}}
-                                    id="download-cv-button"
-                                    data-umami-event="Download cv button"
                                 >
                                     <ZoomInButton
                                         text={"Download CV"}
