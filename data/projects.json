@@ -203,5 +203,33 @@
                 "github": ""
             }
         ]
+    },
+    {
+        "id": 8,
+        "title": "BuddyBack Federated Learning",
+        "description": "A federated learning system for training machine learning models across distributed devices.",
+        "tags": [
+            "Deep Learning",
+            "Machine Learning",
+            "Federated Learning"
+        ],
+        "start_date": "01/05/2025",
+        "end_date": "16/06/2025",
+        "content": "BuddyBack is a federated learning system designed to train machine learning models across distributed devices while preserving data privacy. It allows multiple devices to collaboratively learn a shared model without sharing their local data, enhancing security and privacy. The system is built using Python and leverages libraries such as PyTorch and Lightning for model training.\n\n This represent a simulation of a federated learning system, where multiple devices can train a model collaboratively. The system is designed to handle various machine learning tasks, including classification and regression, while ensuring data privacy and security. The architecture allows for easy integration with different datasets and models, making it versatile for various applications.\n",
+        "github": "https://github.com/Federiko9811/iot-project",
+        "pdf": null,
+        "website": null,
+        "authors": [
+            {
+                "name": "Federico Raponi",
+                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+                "github": "https://github.com/Federiko9811"
+            },
+            {
+                "name": "Lorenzo Spataro",
+                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
+                "github": ""
+            }
+        ]
     }
 ]
