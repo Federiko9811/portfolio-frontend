@@ -16,8 +16,6 @@ export default function Home() {
                     <Projects/>
 
                     <Skills/>
-
-                    {/*<Certifications/>*/}
                 </main>
             </div>
         </div>

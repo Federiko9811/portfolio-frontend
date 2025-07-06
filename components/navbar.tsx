@@ -8,6 +8,7 @@ import {Sheet, SheetContent, SheetTitle, SheetTrigger} from "@/components/ui/she
 import {AnimatePresence, motion} from "framer-motion";
 import ZoomInButton from "@/components/buttons/zoom-in-button";
 
+
 interface SectionLink {
     name: string;
     href: string;
@@ -36,10 +37,6 @@ const Navbar = () => {
         {
             name: "Skills",
             href: "#skills",
-        },
-        {
-            name: "Certifications",
-            href: "#certifications",
         }
     ];
 
@@ -153,23 +150,29 @@ const Navbar = () => {
                                 transition={{delay: 0.5, duration: 0.4}}
                                 onClick={handleCVDownload}
                             >
-                                <motion.div
-                                    whileHover={{scale: 1.05}}
-                                    whileTap={{scale: 0.95}}
+                                <a
+                                    href={"/data/files/cv/CV.pdf"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                    <ZoomInButton
-                                        text={"Download CV"}
-                                        icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
-                                        className={"hidden md:flex"}
-                                        variant={"secondary"}
-                                    />
-                                    <ZoomInButton
-                                        text={"CV"}
-                                        icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
-                                        className={"md:hidden"}
-                                        variant={"secondary"}
-                                    />
-                                </motion.div>
+                                    <motion.div
+                                        whileHover={{scale: 1.05}}
+                                        whileTap={{scale: 0.95}}
+                                    >
+                                        <ZoomInButton
+                                            text={"Download CV"}
+                                            icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
+                                            className={"hidden md:flex"}
+                                            variant={"secondary"}
+                                        />
+                                        <ZoomInButton
+                                            text={"CV"}
+                                            icon={<DownloadIcon className="ml-2 h-4 w-4"/>}
+                                            className={"md:hidden"}
+                                            variant={"secondary"}
+                                        />
+                                    </motion.div>
+                                </a>
                             </motion.div>
                         </nav>
                     </div>
