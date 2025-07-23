@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         title: "Federico Raponi - Portfolio",
         description: "Federico Raponi's personal portfolio showcasing his projects, skills, and certifications.",
         images: ["/og-image.jpg"],
-        creator: "@federicoraponi", // Add your Twitter handle if you have one
+        creator: "@Federiko9811",
     },
     robots: {
         index: true,
@@ -75,12 +75,18 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
         <head>
-            <title></title>
             {/* Additional meta tags for better SEO */}
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta name="theme-color" content="#000000" />
-            <link rel="canonical" href="https://federicoraponi.it" />
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <meta name="theme-color" content="#000000"/>
+            <link rel="canonical" href="https://federicoraponi.it"/>
 
+            {/* Favicon and app icons */}
+            <link rel="icon" href="/favicon.ico" sizes="any"/>
+            <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+            <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
         </head>
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
