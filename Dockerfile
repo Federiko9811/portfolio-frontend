@@ -9,13 +9,23 @@ RUN npm run build
 FROM nginx:alpine
 # Copy the built static files to Nginx's serving directory
 COPY --from=builder /app/out /usr/share/nginx/html
-# Create a custom nginx.conf file
+
+# Create a proper nginx.conf file
 RUN echo 'server { \
     listen 3003; \
     listen [::]:3003; \
     root /usr/share/nginx/html; \
     index index.html; \
     server_name _; \
+    \
+    # Handle static assets directly \
+    location ~* \.(jpg|jpeg|png|gif|ico|svg|css|js|txt|pdf|woff|woff2|ttf|eot)$ { \
+        expires 1y; \
+        add_header Cache-Control "public, immutable"; \
+        try_files $uri =404; \
+    } \
+    \
+    # Handle everything else (SPA routing) \
     location / { \
         try_files $uri $uri.html $uri/ /index.html; \
     } \
