@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: "Federico Raponi's personal portfolio showcasing his projects, skills, and certifications.",
     metadataBase: new URL('https://federicoraponi.it'),
     keywords: ["Federico Raponi", "portfolio", "developer", "software engineer", "projects"],
-    authors: [{ name: "Federico Raponi" }],
+    authors: [{name: "Federico Raponi"}],
     creator: "Federico Raponi",
     publisher: "Federico Raponi",
     openGraph: {
@@ -79,6 +79,11 @@ export default function RootLayout({
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <meta name="theme-color" content="#000000"/>
             <link rel="canonical" href="https://federicoraponi.it"/>
+            <meta name="author" content="Federico Raponi"/>
+            <meta name="language" content="English"/>
+            <meta name="geo.region" content="IT-LT"/>
+            <meta name="geo.placename" content="Latina"/>
+
 
             {/* Favicon and app icons */}
             <link rel="icon" href="/favicon.ico" sizes="any"/>
@@ -87,6 +92,7 @@ export default function RootLayout({
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
             <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+            <meta property="og:image" content="https://federicoraponi.it/og-image.jpg"/>
         </head>
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
