@@ -1,6 +1,30 @@
 import ClientPage from "@/app/projects/[id]/client-page";
 import projects from "@/data/projects.json";
 import type { Metadata } from "next";
+import Script from "next/script";
+
+// Define clean interfaces
+interface Author {
+    name: string;
+    linkedin: string;
+    github: string;
+}
+
+interface Project {
+    id: number;
+    title: string;
+    description: string;
+    tags: string[];
+    start_date: string;
+    end_date: string;
+    content: string;
+    github: string | null;
+    pdf: string | null;
+    website?: string | null;
+    authors: Author[];
+    image?: string;
+    technologies?: string[];
+}
 
 type Props = {
     params: Promise<{
@@ -8,10 +32,110 @@ type Props = {
     }>;
 };
 
+// Generate structured data for the project
+function generateProjectStructuredData(project: Project) {
+    const baseUrl = "https://federicoraponi.it";
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": project.title,
+        "description": project.description || project.content?.substring(0, 160),
+        "url": `${baseUrl}/projects/${project.id}`,
+        "author": {
+            "@type": "Person",
+            "name": project.authors?.[0]?.name || "Federico Raponi",
+            "url": baseUrl,
+            "sameAs": [
+                project.authors?.[0]?.github || "https://github.com/federicoraponi",
+                project.authors?.[0]?.linkedin || "https://linkedin.com/in/federicoraponi"
+            ]
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "Federico Raponi",
+            "url": baseUrl
+        },
+        "dateCreated": project.start_date,
+        "dateModified": project.end_date || project.start_date,
+        "keywords": project.tags?.join(", ") || "",
+        "genre": "Software Development",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Federico Raponi Portfolio",
+            "url": baseUrl
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `${baseUrl}/projects/${project.id}`
+        },
+        "image": project.image ? `${baseUrl}${project.image}` : `${baseUrl}/og-image.jpg`,
+        "thumbnailUrl": project.image ? `${baseUrl}${project.image}` : `${baseUrl}/og-image.jpg`,
+        // If the project has a website
+        ...(project.website && {
+            "workExample": {
+                "@type": "WebApplication",
+                "name": `${project.title} - Live Demo`,
+                "url": project.website
+            }
+        }),
+        // If the project has a GitHub repository
+        ...(project.github && {
+            "codeRepository": project.github
+        }),
+        // If the project has a PDF
+        ...(project.pdf && {
+            "encoding": {
+                "@type": "MediaObject",
+                "contentUrl": `${baseUrl}${project.pdf}`,
+                "encodingFormat": "application/pdf"
+            }
+        }),
+        // Add technology stack if available
+        ...(project.technologies && {
+            "about": project.technologies.map((tech: string) => ({
+                "@type": "Thing",
+                "name": tech
+            }))
+        })
+    };
+}
+
+// Generate breadcrumb structured data
+function generateBreadcrumbStructuredData(project: Project) {
+    const baseUrl = "https://federicoraponi.it";
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": baseUrl
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": `${baseUrl}/projects`
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": project.title,
+                "item": `${baseUrl}/projects/${project.id}`
+            }
+        ]
+    };
+}
+
 // Generate metadata for each project page dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { id } = await params;
-    const project = projects.find((p) => p.id === parseInt(id));
+    const project = projects.find((p) => p.id === parseInt(id)) as Project | undefined;
 
     if (!project) {
         return {
@@ -39,12 +163,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             url: `https://federicoraponi.it/projects/${id}`,
             type: "article",
             publishedTime: project.start_date,
-            modifiedTime: project.end_date, // If you have an end_date field
+            modifiedTime: project.end_date,
             authors: project.authors?.map(author => author.name) || ["Federico Raponi"],
             tags: project.tags,
             images: [
                 {
-                    url: "/og-image.jpg", // Use project-specific image if available
+                    url: project.image ? `https://federicoraponi.it${project.image}` : "/og-image.jpg",
                     width: 1200,
                     height: 630,
                     alt: project.title,
@@ -55,7 +179,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             card: "summary_large_image",
             title: `${project.title} | Federico Raponi Portfolio`,
             description: previewDescription,
-            images: ["/og-image.jpg"],
+            images: [project.image ? `https://federicoraponi.it${project.image}` : "/og-image.jpg"],
         },
         robots: {
             index: true,
@@ -78,5 +202,34 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: Props) {
     const { id } = await params;
-    return <ClientPage projectId={id} />;
+    const project = projects.find((p) => p.id === parseInt(id)) as Project | undefined;
+
+    if (!project) {
+        return <div>Project not found</div>;
+    }
+
+    const projectStructuredData = generateProjectStructuredData(project);
+    const breadcrumbStructuredData = generateBreadcrumbStructuredData(project);
+
+    return (
+        <>
+            {/* JSON-LD Structured Data */}
+            <Script
+                id="project-structured-data"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(projectStructuredData)
+                }}
+            />
+            <Script
+                id="breadcrumb-structured-data"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(breadcrumbStructuredData)
+                }}
+            />
+
+            <ClientPage projectId={id} />
+        </>
+    );
 }
