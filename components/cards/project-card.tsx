@@ -4,6 +4,7 @@ import {Badge} from "@/components/ui/badge"
 import {formatDateRange} from "@/utils/format-date-range"
 import {ArrowRight} from "lucide-react"
 import ZoomInButton from "@/components/buttons/zoom-in-button";
+import {generateSlug} from "@/utils/generate-slug";
 
 interface ProjectCardProps {
     project: Project
@@ -41,7 +42,7 @@ export function ProjectCard({project}: ProjectCardProps) {
             </CardContent>
             <CardFooter className="p-6 pt-0">
                 <Link
-                    href={`/projects/${project.id}`}
+                    href={`/projects/${generateSlug(project.title)}`}
                     className={"w-full"}
                     onClick={() => handleTrackOpenProject(project.title)}
                 >

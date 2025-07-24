@@ -1,7 +1,10 @@
-import ClientPage from "@/app/projects/[id]/client-page";
+// app/projects/[slug]/page.tsx
 import projects from "@/data/projects.json";
 import type { Metadata } from "next";
 import Script from "next/script";
+import {findProjectBySlug} from "@/utils/find-project-by-slug";
+import {generateSlug} from "@/utils/generate-slug";
+import ClientPage from "@/app/projects/[slug]/client-page";
 
 // Define clean interfaces
 interface Author {
@@ -28,12 +31,12 @@ interface Project {
 
 type Props = {
     params: Promise<{
-        id: string;
+        slug: string;
     }>;
 };
 
 // Generate structured data for the project
-function generateProjectStructuredData(project: Project) {
+function generateProjectStructuredData(project: Project, slug: string) {
     const baseUrl = "https://federicoraponi.it";
 
     return {
@@ -41,7 +44,7 @@ function generateProjectStructuredData(project: Project) {
         "@type": "CreativeWork",
         "name": project.title,
         "description": project.description || project.content?.substring(0, 160),
-        "url": `${baseUrl}/projects/${project.id}`,
+        "url": `${baseUrl}/projects/${slug}`,
         "author": {
             "@type": "Person",
             "name": project.authors?.[0]?.name || "Federico Raponi",
@@ -68,7 +71,7 @@ function generateProjectStructuredData(project: Project) {
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `${baseUrl}/projects/${project.id}`
+            "@id": `${baseUrl}/projects/${slug}`
         },
         "image": project.image ? `${baseUrl}${project.image}` : `${baseUrl}/og-image.jpg`,
         "thumbnailUrl": project.image ? `${baseUrl}${project.image}` : `${baseUrl}/og-image.jpg`,
@@ -103,7 +106,7 @@ function generateProjectStructuredData(project: Project) {
 }
 
 // Generate breadcrumb structured data
-function generateBreadcrumbStructuredData(project: Project) {
+function generateBreadcrumbStructuredData(project: Project, slug: string) {
     const baseUrl = "https://federicoraponi.it";
 
     return {
@@ -126,7 +129,7 @@ function generateBreadcrumbStructuredData(project: Project) {
                 "@type": "ListItem",
                 "position": 3,
                 "name": project.title,
-                "item": `${baseUrl}/projects/${project.id}`
+                "item": `${baseUrl}/projects/${slug}`
             }
         ]
     };
@@ -134,8 +137,8 @@ function generateBreadcrumbStructuredData(project: Project) {
 
 // Generate metadata for each project page dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { id } = await params;
-    const project = projects.find((p) => p.id === parseInt(id)) as Project | undefined;
+    const { slug } = await params;
+    const project = findProjectBySlug(projects, slug) as Project | undefined;
 
     if (!project) {
         return {
@@ -157,10 +160,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: previewDescription,
         keywords: [...(project.tags || []), "Federico Raponi", "portfolio", "project"],
         authors: project.authors?.map(author => ({ name: author.name })) || [{ name: "Federico Raponi" }],
+        alternates: {
+            canonical: `https://federicoraponi.it/projects/${slug}`
+        },
         openGraph: {
             title: `${project.title} | Federico Raponi Portfolio`,
             description: previewDescription,
-            url: `https://federicoraponi.it/projects/${id}`,
+            url: `https://federicoraponi.it/projects/${slug}`,
             type: "article",
             publishedTime: project.start_date,
             modifiedTime: project.end_date,
@@ -194,22 +200,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
+// Generate static params for all projects using slugs
 export async function generateStaticParams() {
-    return projects.map((p) => ({
-        id: p.id.toString(),
+    return projects.map((project) => ({
+        slug: generateSlug(project.title),
     }));
 }
 
 export default async function ProjectPage({ params }: Props) {
-    const { id } = await params;
-    const project = projects.find((p) => p.id === parseInt(id)) as Project | undefined;
+    const { slug } = await params;
+    const project = findProjectBySlug(projects, slug) as Project | undefined;
 
     if (!project) {
         return <div>Project not found</div>;
     }
 
-    const projectStructuredData = generateProjectStructuredData(project);
-    const breadcrumbStructuredData = generateBreadcrumbStructuredData(project);
+    const projectStructuredData = generateProjectStructuredData(project, slug);
+    const breadcrumbStructuredData = generateBreadcrumbStructuredData(project, slug);
 
     return (
         <>
@@ -229,7 +236,7 @@ export default async function ProjectPage({ params }: Props) {
                 }}
             />
 
-            <ClientPage projectId={id} />
+            <ClientPage projectSlug={slug} />
         </>
     );
 }

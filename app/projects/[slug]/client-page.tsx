@@ -1,3 +1,4 @@
+// app/projects/[slug]/client-page.tsx
 'use client'
 import React, {useRef} from 'react';
 import {motion, useInView} from "framer-motion";
@@ -8,14 +9,14 @@ import ZoomInButton from "@/components/buttons/zoom-in-button";
 import {FileText, Github, Globe} from "lucide-react";
 import BaseContainer from "@/components/containers/base-container";
 import projects from "@/data/projects.json";
+import {findProjectBySlug} from "@/utils/find-project-by-slug";
 
 interface ClientPageProps {
-    projectId: string;
+    projectSlug: string;
 }
 
-const ClientPage = ({projectId}: ClientPageProps) => {
-
-    const project = projects.find((p) => p.id === parseInt(projectId));
+const ClientPage = ({projectSlug}: ClientPageProps) => {
+    const project = findProjectBySlug(projects, projectSlug);
 
     const contentRef = useRef(null);
     const isInView = useInView(contentRef, {once: true, amount: 0.1});
