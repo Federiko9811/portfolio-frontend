@@ -3,6 +3,7 @@ import IntroductionBanner from "@/components/sections/introduction-banner";
 import Projects from "@/components/sections/projects";
 import Skills from "@/components/sections/skills";
 import type { Metadata } from "next";
+import Contacts from "@/components/sections/contacts";
 
 export const metadata: Metadata = {
     title: "Federico Raponi - Developer Portfolio",
@@ -51,6 +52,8 @@ export default function Home() {
             <AboutMe/>
             <Projects/>
             <Skills/>
+
+            <Contacts/>
         </div>
     )
 }
