@@ -151,7 +151,7 @@ const Navbar = () => {
                                 onClick={handleCVDownload}
                             >
                                 <a
-                                    href={"/data/files/cv/CV.pdf"}
+                                    href={"/data/files/cv/Federico Raponi - CV.pdf"}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
