@@ -8,6 +8,7 @@ interface SectionLink {
 }
 
 interface Author {
+    id: string;
     name: string;
     github: string;
     linkedin: string;
@@ -15,6 +16,7 @@ interface Author {
 
 interface Project {
     id: number;
+    priority: number;
     title: string;
     description: string;
     tags: string[];
@@ -24,5 +26,5 @@ interface Project {
     github?: string | null;
     pdf?: string | null;
     website?: string | null;
-    authors?: Author[];
+    author_ids: string[];
 }

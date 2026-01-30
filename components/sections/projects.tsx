@@ -19,15 +19,9 @@ const Projects = () => {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, {once: true, amount: 0.1});
 
-    // Sort projects by date (newest first)
+    // Sort projects by priority (lower = more important)
     const projects: Project[] = projectsList.sort((a, b) => {
-        const dateA = new Date(a.end_date.split("/").reverse().join("-")).getTime()
-        const dateB = new Date(b.end_date.split("/").reverse().join("-")).getTime()
-
-        if (dateA !== dateB) {
-            return dateB - dateA
-        }
-        return a.title.localeCompare(b.title)
+        return (a.priority ?? 999) - (b.priority ?? 999);
     })
 
     // Extract all unique tags from projects

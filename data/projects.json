@@ -1,6 +1,27 @@
 [
     {
+        "id": 9,
+        "priority": 1,
+        "title": "Transfer Learning from Text-Motion Retrieval to Violence Classification",
+        "description": "Investigating semantic priors from text-motion retrieval models for violence classification using meta-learning.",
+        "tags": [
+            "Machine Learning",
+            "Deep Learning",
+            "Meta-Learning",
+            "Transfer Learning",
+            "Research"
+        ],
+        "start_date": "01/01/2025",
+        "end_date": "30/01/2025",
+        "content": "Violent actions are rare in motion datasets, making violence recognition difficult due to scarcity of available samples and, in general, scarcity of labelled data. This is a major safety concern with the rise of robots interacting directly with people.\n\nFor our Advanced Machine Learning course project, we investigated whether semantic priors from text-motion retrieval models (TMR++) could transfer to violence classification.\n\nBy framing this as a few-shot learning problem, we applied **Model-Agnostic Meta-Learning (MAML)** with prototypical networks to enable rapid adaptation from minimal examples.\n\nTo prevent feature collapse, a common issue in contrastive learning with imbalanced data, we implemented a decoupled **Three-Loss Architecture (BCE + Center + Hinge)** to explicitly enforce separation between safety-critical categories without losing fine-grained semantics.\n\n## Key Findings\n\n- MAML significantly outperforms the standard Prototypical Network baseline, proving that meta-learning is highly effective for data-scarce scenarios\n- We achieved a **73.1% Violence Detection Rate** while maintaining a negligible **1.0% False Positive Rate**\n\nWhile fully supervised fine-tuning still holds the ceiling, meta-learning proved to be a viable, data-efficient alternative for deploying safety models where labeled data is scarce.\n",
+        "github": "https://github.com/Federiko9811/violent-action-recognition",
+        "pdf": "/data/files/aml/TransferLearning.pdf",
+        "website": null,
+        "author_ids": ["federico-raponi", "marco-realacci", "alessio-pannozzo", "lorenzo-spataro"]
+    },
+    {
         "id": 1,
+        "priority": 3,
         "title": "Iris Recognition: Traditional vs. Deep Learning Approaches",
         "description": "Comparison of traditional biometric pipeline vs deep learning-based methods.",
         "tags": [
@@ -16,26 +37,11 @@
         "github": "https://github.com/lorenzosp01/iris-recognition-system",
         "pdf": "/data/files/iris-recognition/IrisRecognitionProject.pdf",
         "website": null,
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            },
-            {
-                "name": "Alessio Pannozzo",
-                "linkedin": "https://www.linkedin.com/in/alessio-pannozzo-7a9101176/",
-                "github": ""
-            },
-            {
-                "name": "Lorenzo Spataro",
-                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
-                "github": ""
-            }
-        ]
+        "author_ids": ["federico-raponi", "alessio-pannozzo", "lorenzo-spataro"]
     },
     {
         "id": 2,
+        "priority": 2,
         "title": "Pneumonia detection from Chest X-ray images",
         "description": "Comparison of binary classification techniques using traditional methods and deep learning.",
         "tags": [
@@ -51,36 +57,11 @@
         "github": "",
         "pdf": "/data/files/pneumonia-detection/PneumoniaDetection.pdf",
         "website": null,
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            },
-            {
-                "name": "Marco Realacci",
-                "linkedin": "https://www.linkedin.com/in/marco-realacci-634433264/",
-                "github": ""
-            },
-            {
-                "name": "Lorenzo Spataro",
-                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
-                "github": ""
-            },
-            {
-                "name": "Alessio Pannozzo",
-                "linkedin": "https://www.linkedin.com/in/alessio-pannozzo-7a9101176/",
-                "github": ""
-            },
-            {
-                "name": "Gioele Maria Zoccoli",
-                "linkedin": "https://www.linkedin.com/in/gioele-maria-zoccoli-146299302/",
-                "github": ""
-            }
-        ]
+        "author_ids": ["federico-raponi", "marco-realacci", "lorenzo-spataro", "alessio-pannozzo", "gioele-zoccoli"]
     },
     {
         "id": 3,
+        "priority": 4,
         "title": "Progettazione e implementazione di un sistema di raccolta dati per l'allenamento di un modello di Machine Learning",
         "description": "This is the internship report for my Bachelor's degree thesis.",
         "tags": [
@@ -95,16 +76,12 @@
         "content": "This report details the design and implementation of a system for storing data from various sensors on mobile devices. The goal is to collect as much information as possible to create a comprehensive dataset for training a Machine Learning model. The system was developed following REST principles to ensure efficient interaction between the software and the devices. To enhance system robustness, dedicated Unit Tests were implemented, improving the reliability and overall quality of the software.\n\n**Chapter 1** introduces the issue of traffic congestion and the challenges of finding parking in Italian cities, highlighting how these factors negatively impact urban life. The chapter presents _GeneroCity_, a mobile application that allows users to share real-time parking availability information through implicit interaction, leveraging sensors and technologies such as Bluetooth Low Energy (BLE) and Machine Learning.\n\n**Chapter 2** explores the project's architecture, dividing it into backend and frontend modules. It examines the data transfer protocols used, such as HTTP and HTTPS, and discusses the importance of REST APIs. Additionally, it describes the key technologies used in the _GeneroCity_ stack, including GoLang and MariaDB.\n\n**Chapter 3** focuses on software testing, emphasizing the significance of unit testing in ensuring code quality and maintainability. The chapter examines tools such as GO-SQLMock and the creation of a MockFS system to facilitate testing.\n\n**Chapter 4** delves into the implementation of a data collection and management mechanism. It covers database design and the creation of endpoints for interacting with the collected data. Furthermore, it discusses the optimization of these endpoints to improve performance during data transmission.\n\n**Chapter 5** outlines minor contributions to the project, with particular attention to the _GeneroCity BLE_ system and the collection of data related to Bluetooth devices in the user's vicinity.\n",
         "github": null,
         "pdf": "/data/files/tirocinio/RelazioneTirocinioL31_Raponi.pdf",
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            }
-        ]
+        "website": null,
+        "author_ids": ["federico-raponi"]
     },
     {
         "id": 4,
+        "priority": 7,
         "title": "JBlackjack",
         "description": "A Java-based Blackjack game implementation using JavaFX and MVC architecture.",
         "tags": [
@@ -119,16 +96,11 @@
         "github": "https://github.com/Federiko9811/jblackjack",
         "pdf": "/data/files/jblackjack/RelazioneJBlackJack.pdf",
         "website": null,
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            }
-        ]
+        "author_ids": ["federico-raponi"]
     },
     {
         "id": 5,
+        "priority": 6,
         "title": "WasaPhoto",
         "description": "A web application for managing and sharing photos, built using Go and Vue deployed using Docker.",
         "tags": [
@@ -144,16 +116,11 @@
         "github": "https://github.com/Federiko9811/WasaPhoto",
         "pdf": null,
         "website": null,
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            }
-        ]
+        "author_ids": ["federico-raponi"]
     },
     {
         "id": 6,
+        "priority": 8,
         "title": "FAF Company",
         "description": "A company management application built using React and TypeScript.",
         "tags": [
@@ -167,16 +134,11 @@
         "github": null,
         "pdf": null,
         "website": "https://fafcompany.com/",
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            }
-        ]
+        "author_ids": ["federico-raponi"]
     },
     {
         "id": 7,
+        "priority": 9,
         "title": "Netwave Project",
         "description": "A network analysis and visualization tool built using Java.",
         "tags": [
@@ -191,21 +153,11 @@
         "github": "https://github.com/Federiko9811/netwave-project",
         "pdf": null,
         "website": null,
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            },
-            {
-                "name": "Lorenzo Spataro",
-                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
-                "github": ""
-            }
-        ]
+        "author_ids": ["federico-raponi", "lorenzo-spataro"]
     },
     {
         "id": 8,
+        "priority": 5,
         "title": "BuddyBack Federated Learning",
         "description": "A federated learning system for training machine learning models across distributed devices.",
         "tags": [
@@ -219,17 +171,6 @@
         "github": "https://github.com/Federiko9811/iot-project",
         "pdf": null,
         "website": null,
-        "authors": [
-            {
-                "name": "Federico Raponi",
-                "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
-                "github": "https://github.com/Federiko9811"
-            },
-            {
-                "name": "Lorenzo Spataro",
-                "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
-                "github": ""
-            }
-        ]
+        "author_ids": ["federico-raponi", "lorenzo-spataro"]
     }
 ]

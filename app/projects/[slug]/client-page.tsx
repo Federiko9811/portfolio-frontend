@@ -10,6 +10,7 @@ import {FileText, Github, Globe} from "lucide-react";
 import BaseContainer from "@/components/containers/base-container";
 import projects from "@/data/projects.json";
 import {findProjectBySlug} from "@/utils/find-project-by-slug";
+import {getAuthorsByIds} from "@/utils/get-authors";
 
 interface ClientPageProps {
     projectSlug: string;
@@ -24,6 +25,9 @@ const ClientPage = ({projectSlug}: ClientPageProps) => {
     if (!project) {
         return <div>Project Not Found</div>;
     }
+
+    const authors = getAuthorsByIds(project.author_ids);
+    const hasResources = project.pdf || project.website || project.github;
 
     return (
         <BaseContainer>
@@ -64,9 +68,9 @@ const ClientPage = ({projectSlug}: ClientPageProps) => {
                         Authors
                     </h3>
                     <div className="flex flex-wrap gap-2 items-center">
-                        {project.authors?.map((author, index) => (
+                        {authors.map((author, index) => (
                             <motion.div
-                                key={index}
+                                key={author.id}
                                 initial={{opacity: 0, scale: 0.9}}
                                 animate={isInView ? {opacity: 1, scale: 1} : {opacity: 0, scale: 0.9}}
                                 transition={{delay: 0.7 + (index * 0.1), duration: 0.4}}
@@ -88,81 +92,83 @@ const ClientPage = ({projectSlug}: ClientPageProps) => {
                     </div>
                 </motion.div>
 
-                <motion.div
-                    initial={{opacity: 0, y: 20}}
-                    animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 20}}
-                    transition={{delay: 0.8, duration: 0.5}}
-                >
-                    <h3>
-                        More Resources
-                    </h3>
+                {hasResources && (
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        animate={isInView ? {opacity: 1, y: 0} : {opacity: 0, y: 20}}
+                        transition={{delay: 0.8, duration: 0.5}}
+                    >
+                        <h3>
+                            More Resources
+                        </h3>
 
-                    <div className={"flex gap-4 flex-wrap"}>
-                        {project.pdf ? (
-                            <motion.div
-                                initial={{opacity: 0, x: -10}}
-                                animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -10}}
-                                transition={{delay: 0.9, duration: 0.4}}
-                                whileHover={{scale: 1.05}}
-                                whileTap={{scale: 0.95}}
-                            >
-                                <a
-                                    href={project.pdf}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                        <div className={"flex gap-4 flex-wrap"}>
+                            {project.pdf && (
+                                <motion.div
+                                    initial={{opacity: 0, x: -10}}
+                                    animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -10}}
+                                    transition={{delay: 0.9, duration: 0.4}}
+                                    whileHover={{scale: 1.05}}
+                                    whileTap={{scale: 0.95}}
                                 >
-                                    <ZoomInButton
-                                        text={"Report"}
-                                        icon={<FileText className="ml-2 h-4 w-4"/>}
-                                    />
-                                </a>
-                            </motion.div>
-                        ) : null}
+                                    <a
+                                        href={project.pdf}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <ZoomInButton
+                                            text={"Report"}
+                                            icon={<FileText className="ml-2 h-4 w-4"/>}
+                                        />
+                                    </a>
+                                </motion.div>
+                            )}
 
-                        {project.website ? (
-                            <motion.div
-                                initial={{opacity: 0, x: -10}}
-                                animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -10}}
-                                transition={{delay: 1.0, duration: 0.4}}
-                                whileHover={{scale: 1.05}}
-                                whileTap={{scale: 0.95}}
-                            >
-                                <a
-                                    href={project.website}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                            {project.website && (
+                                <motion.div
+                                    initial={{opacity: 0, x: -10}}
+                                    animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -10}}
+                                    transition={{delay: 1.0, duration: 0.4}}
+                                    whileHover={{scale: 1.05}}
+                                    whileTap={{scale: 0.95}}
                                 >
-                                    <ZoomInButton
-                                        text={"Website"}
-                                        icon={<Globe className="ml-2 h-4 w-4"/>}
-                                    />
-                                </a>
-                            </motion.div>
-                        ) : null}
+                                    <a
+                                        href={project.website}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <ZoomInButton
+                                            text={"Website"}
+                                            icon={<Globe className="ml-2 h-4 w-4"/>}
+                                        />
+                                    </a>
+                                </motion.div>
+                            )}
 
-                        {project.github ? (
-                            <motion.div
-                                initial={{opacity: 0, x: -10}}
-                                animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -10}}
-                                transition={{delay: 1.1, duration: 0.4}}
-                                whileHover={{scale: 1.05}}
-                                whileTap={{scale: 0.95}}
-                            >
-                                <a
-                                    href={project.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                            {project.github && (
+                                <motion.div
+                                    initial={{opacity: 0, x: -10}}
+                                    animate={isInView ? {opacity: 1, x: 0} : {opacity: 0, x: -10}}
+                                    transition={{delay: 1.1, duration: 0.4}}
+                                    whileHover={{scale: 1.05}}
+                                    whileTap={{scale: 0.95}}
                                 >
-                                    <ZoomInButton
-                                        text={"Source"}
-                                        icon={<Github className="ml-2 h-4 w-4"/>}
-                                        variant={"secondary"}
-                                    />
-                                </a>
-                            </motion.div>
-                        ) : null}
-                    </div>
-                </motion.div>
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <ZoomInButton
+                                            text={"Source"}
+                                            icon={<Github className="ml-2 h-4 w-4"/>}
+                                            variant={"secondary"}
+                                        />
+                                    </a>
+                                </motion.div>
+                            )}
+                        </div>
+                    </motion.div>
+                )}
             </motion.div>
         </BaseContainer>
     );

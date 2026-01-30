@@ -1,0 +1,32 @@
+[
+    {
+        "id": "federico-raponi",
+        "name": "Federico Raponi",
+        "linkedin": "https://www.linkedin.com/in/federico-raponi-4501ab199/",
+        "github": "https://github.com/Federiko9811"
+    },
+    {
+        "id": "alessio-pannozzo",
+        "name": "Alessio Pannozzo",
+        "linkedin": "https://www.linkedin.com/in/alessio-pannozzo-7a9101176/",
+        "github": ""
+    },
+    {
+        "id": "lorenzo-spataro",
+        "name": "Lorenzo Spataro",
+        "linkedin": "https://www.linkedin.com/in/lorenzo-spataro-b0690117a/",
+        "github": ""
+    },
+    {
+        "id": "marco-realacci",
+        "name": "Marco Realacci",
+        "linkedin": "https://www.linkedin.com/in/marco-realacci-634433264/",
+        "github": ""
+    },
+    {
+        "id": "gioele-zoccoli",
+        "name": "Gioele Maria Zoccoli",
+        "linkedin": "https://www.linkedin.com/in/gioele-maria-zoccoli-146299302/",
+        "github": ""
+    }
+]

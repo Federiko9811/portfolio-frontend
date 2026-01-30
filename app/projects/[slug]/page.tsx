@@ -5,16 +5,11 @@ import Script from "next/script";
 import {findProjectBySlug} from "@/utils/find-project-by-slug";
 import {generateSlug} from "@/utils/generate-slug";
 import ClientPage from "@/app/projects/[slug]/client-page";
-
-// Define clean interfaces
-interface Author {
-    name: string;
-    linkedin: string;
-    github: string;
-}
+import {getAuthorsByIds, Author} from "@/utils/get-authors";
 
 interface Project {
     id: number;
+    priority: number;
     title: string;
     description: string;
     tags: string[];
@@ -24,7 +19,7 @@ interface Project {
     github: string | null;
     pdf: string | null;
     website?: string | null;
-    authors: Author[];
+    author_ids: string[];
     image?: string;
     technologies?: string[];
 }
@@ -47,11 +42,11 @@ function generateProjectStructuredData(project: Project, slug: string) {
         "url": `${baseUrl}/projects/${slug}`,
         "author": {
             "@type": "Person",
-            "name": project.authors?.[0]?.name || "Federico Raponi",
+            "name": getAuthorsByIds(project.author_ids)?.[0]?.name || "Federico Raponi",
             "url": baseUrl,
             "sameAs": [
-                project.authors?.[0]?.github || "https://github.com/federicoraponi",
-                project.authors?.[0]?.linkedin || "https://linkedin.com/in/federicoraponi"
+                getAuthorsByIds(project.author_ids)?.[0]?.github || "https://github.com/federicoraponi",
+                getAuthorsByIds(project.author_ids)?.[0]?.linkedin || "https://linkedin.com/in/federicoraponi"
             ]
         },
         "creator": {
@@ -159,7 +154,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${project.title} | Federico Raponi Portfolio`,
         description: previewDescription,
         keywords: [...(project.tags || []), "Federico Raponi", "portfolio", "project"],
-        authors: project.authors?.map(author => ({ name: author.name })) || [{ name: "Federico Raponi" }],
+        authors: getAuthorsByIds(project.author_ids)?.map((author: Author) => ({ name: author.name })) || [{ name: "Federico Raponi" }],
         alternates: {
             canonical: `https://federicoraponi.it/projects/${slug}`
         },
@@ -170,7 +165,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             type: "article",
             publishedTime: project.start_date,
             modifiedTime: project.end_date,
-            authors: project.authors?.map(author => author.name) || ["Federico Raponi"],
+            authors: getAuthorsByIds(project.author_ids)?.map((author: Author) => author.name) || ["Federico Raponi"],
             tags: project.tags,
             images: [
                 {
