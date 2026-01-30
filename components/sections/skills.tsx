@@ -9,9 +9,8 @@ const Skills = () => {
     const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
     const programmingLanguages = [
-        "Go",
         "Python",
-        "JavaScript",
+        "Go",
         "TypeScript",
         "Java",
         "SQL"
@@ -20,6 +19,7 @@ const Skills = () => {
     const webDevelopment = [
         "React",
         "Next.js",
+        "FastAPI",
         "Django REST",
         "Gin",
         "Tailwind CSS",
